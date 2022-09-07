@@ -1,0 +1,61 @@
+<mvc:View controllerName="dahill.dahill.controller.CustomerMain"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>CustomerMaintitle}">
+         
+        <content>
+         <Table id="main_table" headerText="{i18n>}" items="{/Customer}" editable="true" inset="false"
+                    growing="true" 
+                    fixedLayout="true"
+                   >
+                
+                    <columns>
+                        <Column id="main_column_id" minScreenWidth="Desktop"
+                            demandPopin="true">
+                            <Text id="main_text_id" text="{i18n>customerid}"/>
+                        </Column>
+                        <Column id="main_column_cusatomername" minScreenWidth="Desktop" demandPopin="true" hAlign="Right">
+                            <Text id="main_text-cusatomername" text="{i18n>cusatomername}"/>
+                        </Column>
+                        <Column id="main_column_customerAddress" minScreenWidth="Desktop" demandPopin="false" hAlign="Left">
+                            <Text id="main_text_customerAddress" text="{i18n>customerAddress}"/>
+                        </Column>
+                          <Column id="main_column_customerphone" minScreenWidth="Desktop" demandPopin="false" hAlign="Left">
+                            <Text id="main_text_customerphone" text="{i18n>customerphone}"/>
+                        </Column>
+                          <Column id="main_column_jobLocation"  minScreenWidth="Desktop" demandPopin="true" hAlign="Left">
+                            <Text id="main_text_jobLocation" text="{i18n>jobLocation}"/>
+                        </Column>
+                       
+                        
+                    </columns>
+                    <items>
+                    <ColumnListItem id="ListItem1" type="Navigation" 
+                      press="onTableItemPressed">
+                        <cells>
+                        <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{ID}"/>
+
+                        <VBox>
+                        <Text id="text_name" text="{name}" visible="true"/> 
+                        </VBox>
+                      
+                        <VBox>
+                        <Text id="_IDGenText1address"  text="{address}" />
+                        </VBox>
+
+                        <VBox>
+                        <Text id="text_phone" text="{phone}" visible="true"/>
+                        </VBox>
+
+                         <VBox>
+                        <Text id="text_jobLocation" text="{jobLocation}" visible="true"/>
+                        </VBox>
+                        
+
+                        </cells>
+                    </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,62 @@
+<mvc:View controllerName="dahill.dahill.controller.InvoiceMain"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>InvoiceMaintitle}">
+        
+        <content>
+         <Table id="main_table" headerText="{i18n>}" items="{/Orders}" editable="true" inset="false"
+                    growing="true" 
+                    growingThreshold="3"
+                    fixedLayout="true"
+                    visibleRowCount="7"
+                    border-collapse="collapse">
+                
+                    <columns>
+                        <Column id="main_column_id" minScreenWidth="Desktop"
+                            demandPopin="true"
+                            width="12em">
+                            <Text id="main_text_id" text="{i18n>customerId}"/>
+                        </Column>
+                        <Column id="main_column_name" minScreenWidth="Desktop" demandPopin="true" hAlign="Right">
+                            <Text id="main_text_name" text="{i18n>description}"/>
+                        </Column>
+                        <Column id="main_column_description" minScreenWidth="Desktop" demandPopin="false" hAlign="Left">
+                            <Text id="main_text_description" text="{i18n>createdAt}"/>
+                        </Column>
+                          <Column id="main_column_price" minScreenWidth="Desktop" demandPopin="false" hAlign="Left">
+                            <Text id="main_text_price" text="{i18n>modifiedAt}"/>
+                        </Column>
+                          <Column id="main_column_stock"  minScreenWidth="Desktop" demandPopin="true" hAlign="Left">
+                            <Text id="main_text_stock" text="{i18n>price}"/>
+                        </Column>
+                       
+                        
+                    </columns>
+                    <items>
+                    <ColumnListItem id="ListItem1" type="Navigation" 
+                      press="onListItemPressed">
+                        <cells>
+                        <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{customer_ID}"/>
+                        <VBox>
+                        <Text id="text_name" text="{description}" visible="true"/> 
+                        </VBox>
+                      
+                        <VBox>
+                        
+                        <Text id="_IDGenText1"  text="{createdAt}" />
+                        </VBox>
+                        <VBox>
+                        <Text id="text_stock" text="{modifiedAt}" visible="true"/>
+                        </VBox>
+                         <VBox>
+                        <Text id="text_supplier" text="{price}" visible="true"/>
+                        </VBox>
+                        
+
+                        </cells>
+                    </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+    </Page>
+</mvc:View>

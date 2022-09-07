@@ -1,0 +1,1 @@
+using shopService as service from '../../srv/cat-service';
