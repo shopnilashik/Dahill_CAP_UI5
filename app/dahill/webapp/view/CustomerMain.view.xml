@@ -2,29 +2,58 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>CustomerMaintitle}">
-         
         <content>
-         <Table id="main_table" headerText="{i18n>}" items="{/Customer}" editable="true" inset="false"
-                    growing="true" 
-                    fixedLayout="true"
-                   >
-                
+         <Table id="main_table" headerText="{i18n>}" items="{/Customer}" 
+                    growing="true" >
+                <headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button
+								id="refreshUsersButton"
+								icon="sap-icon://decline"
+								tooltip="decline"
+								press=".ondecline" visible="{oModeModel>/decline}"/>
+                               
+								<Button
+											id="deleteUserButton"
+											icon="sap-icon://delete"
+											tooltip="{i18n>deleteButtonText}"
+											press=".onDelete" visible="{oModeModel>/deleteModel}">
+											<layoutData>
+												<OverflowToolbarLayoutData priority="NeverOverflow"/>
+											</layoutData>
+										</Button>
+                                   
+								<Button
+											id="addUserButton"
+											icon="sap-icon://add"
+											tooltip="{i18n>createButtonText}"
+											press=".onOpenDialog" visible="{oModeModel>/createBtn}">
+											<layoutData>
+												<OverflowToolbarLayoutData priority="NeverOverflow"/>
+											</layoutData>
+										</Button>
+										
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
                     <columns>
                         <Column id="main_column_id" minScreenWidth="Desktop"
                             demandPopin="true">
-                            <Text id="main_text_id" text="{i18n>customerid}"/>
+                            <Text id="main_text_id" text="{i18n>customerid}" />
                         </Column>
-                        <Column id="main_column_cusatomername" minScreenWidth="Desktop" demandPopin="true" hAlign="Right">
-                            <Text id="main_text-cusatomername" text="{i18n>cusatomername}"/>
+                        <Column id="main_column_cusatomername" minScreenWidth="Desktop" demandPopin="true" hAlign="Left" >
+                            <Label id="display_label_name" text="{i18n>cusatomername}" design="Bold"/>
                         </Column>
-                        <Column id="main_column_customerAddress" minScreenWidth="Desktop" demandPopin="false" hAlign="Left">
-                            <Text id="main_text_customerAddress" text="{i18n>customerAddress}"/>
+                        <Column id="main_column_customerAddress" minScreenWidth="Desktop"  hAlign="Left">
+                            <Label id="display_label_address" text="{i18n>customerAddress}" design="Bold"/>
                         </Column>
-                          <Column id="main_column_customerphone" minScreenWidth="Desktop" demandPopin="false" hAlign="Left">
-                            <Text id="main_text_customerphone" text="{i18n>customerphone}"/>
+                          <Column id="main_column_customerphone" minScreenWidth="Desktop"  hAlign="Left">
+                            <Label id="display_label_phone" text="{i18n>customerphone}" design="Bold"/>
                         </Column>
                           <Column id="main_column_jobLocation"  minScreenWidth="Desktop" demandPopin="true" hAlign="Left">
-                            <Text id="main_text_jobLocation" text="{i18n>jobLocation}"/>
+                             <Label id="display_label_jobLocation" text="{i18n>jobLocation}" design="Bold"/>
                         </Column>
                        
                         
@@ -33,26 +62,12 @@
                     <ColumnListItem id="ListItem1" type="Navigation" 
                       press="onTableItemPressed">
                         <cells>
-                        <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{ID}"/>
-
-                        <VBox>
-                        <Text id="text_name" text="{name}" visible="true"/> 
-                        </VBox>
-                      
-                        <VBox>
-                        <Text id="_IDGenText1address"  text="{address}" />
-                        </VBox>
-
-                        <VBox>
-                        <Text id="text_phone" text="{phone}" visible="true"/>
-                        </VBox>
-
-                         <VBox>
-                        <Text id="text_jobLocation" text="{jobLocation}" visible="true"/>
-                        </VBox>
-                        
-
-                        </cells>
+                            <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{ID}"/>
+                            <Text id="text_name" text="{name}"/> 
+                            <Text id="_IDGenText1address"  text="{address}" />
+                            <Text id="text_phone" text="{phone}" />
+                            <Text id="text_jobLocation" text="{jobLocation}" />
+                         </cells>
                     </ColumnListItem>
                     </items>
                 </Table>

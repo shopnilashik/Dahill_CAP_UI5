@@ -133,6 +133,11 @@
                     "pattern": "CustomerDetail/{ID}",
                     "name": "CustomerDetail",
                     "target": "TargetCustomerDetail"
+                },
+                {
+                    "pattern": "CreateCustomer",
+                    "name": "CreateCustomer",
+                    "target": "TargetCreateCustomer"
                 }
             ],
             "targets": {
@@ -163,6 +168,13 @@
                     "clearControlAggregation": false,
                     "viewId": "CustomerDetail",
                     "viewName": "CustomerDetail"
+                },
+                "TargetCreateCustomer": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CreateCustomer",
+                    "viewName": "CreateCustomer"
                 }
             }
         },

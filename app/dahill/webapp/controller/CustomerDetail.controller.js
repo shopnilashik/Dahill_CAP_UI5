@@ -13,7 +13,7 @@ sap.ui.define([
                 let oEditModel = new JSONModel({
                     editmode: false,
                     textMode: true,
-                    adminMode:false
+                    
                   });
                  
                   this.getView().setModel(oEditModel, "editModel");
@@ -54,9 +54,6 @@ sap.ui.define([
             },
             onSavePressed:function(){
                 this._toggleEdit(false, true);
-                // var oList = this.byId("main_table"),
-                // oBinding = oList.getBinding("items");
-                // oBinding.refresh();
             },
             onCancelPressed: function () {
                 this._toggleEdit(false, true);

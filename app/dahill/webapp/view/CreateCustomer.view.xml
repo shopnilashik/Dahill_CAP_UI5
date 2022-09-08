@@ -1,0 +1,78 @@
+<mvc:View controllerName="dahill.dahill.controller.CreateCustomer"
+      xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+       <customHeader>
+            <OverflowToolbar id="_IDGenOverflowToolbar1" >  
+            <Button id="customer_back_button" type="Back"
+            press="onNavButton"/>
+                <Title id="_IDGenTitle1" text="{i18n>title}"/>
+             
+               
+            </OverflowToolbar>
+            </customHeader>
+
+             <f:SimpleForm id="create_simpleform"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="{i18n>title}"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false" >
+                <f:content>
+                
+                <Label id="create_label_name" text="{i18n>cusatomername}" />
+                <VBox id="create_vbox1">
+               
+                <Input id="create_input_name"/>
+
+                </VBox>
+
+               
+                <Label id="create_label_address" text="{i18n>customerAddress}" />
+                <VBox id="_IDGenVBox1">
+               
+                <Input id="create_input_address"  />
+                
+                </VBox>
+
+                
+                <Label id="create_label_phone" text="{i18n>customerphone}"  />
+                <VBox id="_IDGenVBox2">
+                <Input id="create_input_phone"  />
+               
+                </VBox>
+                
+           
+                <Label id="create_label_jobLocation" text="{i18n>jobLocation}"/>
+                <VBox id="_IDGenVBox4">
+              
+                <Input id="create_input_jobLocation" />
+                </VBox>
+                </f:content>
+            </f:SimpleForm>
+             <footer>
+                <Bar id="_IDGenBar11">
+                    <contentRight>
+                        <Button id="app_save_button" text="{i18n>save}" type="Accept"
+                icon="sap-icon://save" press="onSavePressed"
+               />
+
+            <Button id="app_cancel_button" text="{i18n>cancel}" type="Reject"
+                icon="sap-icon://cancel" press="onCancelPressed"
+               />
+                    </contentRight>
+        </Bar>
+    </footer>
+    </Page>
+</mvc:View>

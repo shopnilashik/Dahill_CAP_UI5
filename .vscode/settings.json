@@ -1,0 +1,5 @@
+{
+    "UI5LanguageAssistant.codeAssist.deprecated": true,
+    "UI5LanguageAssistant.codeAssist.experimental": true,
+    "UI5LanguageAssistant.trace.server": "messages"
+}
