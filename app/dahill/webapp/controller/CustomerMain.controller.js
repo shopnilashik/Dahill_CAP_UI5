@@ -1,12 +1,13 @@
 // @ts-nocheck
 sap.ui.define([
     "sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel","sap/m/MessageToast",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox","sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,JSONModel,MessageToast,MessageBox) {
+    function (Controller,JSONModel,MessageToast,MessageBox, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("dahill.dahill.controller.CustomerMain", {
@@ -21,6 +22,7 @@ sap.ui.define([
               oRouter
                 .getRoute("CustomerMain")
                 .attachPatternMatched(this._onPatternMatched, this);
+                this.oSF = this.getView().byId("searchField");
               
               },
               _onPatternMatched: function (oEvent) {
@@ -82,5 +84,40 @@ sap.ui.define([
                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("CreateCustomer");
               },
+              onFilterInvoices : function (oEvent) {
+          
+                // build filter array
+                var aFilter = [];
+                var sQuery = oEvent.getParameter("query");
+                if (sQuery) {
+                  aFilter.push(new Filter("name", FilterOperator.Contains, sQuery));
+                }
+          
+                // filter binding
+                var oList = this.byId("main_table");
+                var oBinding = oList.getBinding("items");
+                oBinding.filter(aFilter);
+              },
+
+              onSuggest: function (event) {
+                var sValue = event.getParameter("suggestValue"),
+                  aFilters = [];
+                if (sValue) {
+                  aFilters = [
+                    new Filter([
+                      new Filter("name", function (sText) {
+                        return (sText || "").toUpperCase().indexOf(sValue.toUpperCase()) > -1;
+                      }),
+                      new Filter("address", function (sDes) {
+                        return (sDes || "").toUpperCase().indexOf(sValue.toUpperCase()) > -1;
+                      })
+                    ], false)
+                  ];
+                }
+          
+                this.oSF.getBinding("suggestionItems").filter(aFilters);
+                this.oSF.suggest();
+              }
+          
         });
     });

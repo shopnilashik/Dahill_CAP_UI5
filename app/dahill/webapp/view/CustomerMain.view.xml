@@ -9,6 +9,7 @@
 					<OverflowToolbar>
 						<content>
 							<ToolbarSpacer/>
+                              <SearchField 	id="searchField" width="78%" search=".onFilterInvoices" />
 							<Button
 								id="refreshUsersButton"
 								icon="sap-icon://decline"

@@ -44,7 +44,6 @@ sap.ui.define([
                 address = this._address.getValue(),
                 phone = this._phone.getValue(),
                 jobLocation = this._jobLocation.getValue()
-                console.log(name.length,address.length,phone.length,jobLocation.length);
                  if(name.length > 2 && address.length > 2 && phone.length > 2 && jobLocation.length > 2){
                     oList.create({
                        
