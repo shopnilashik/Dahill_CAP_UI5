@@ -1,0 +1,31 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:ui="sap.ui" 
+   xmlns:f="sap.ui.layout.form">
+ <TableSelectDialog id="_IDGenTableSelectDialog1.1"
+		noDataText="No Data"
+		title="Freight Forwarder Selection"
+		search=".handleSearch"
+    confirm=".handleValueHelpClose"
+		cancel=".handleValueHelpClose"
+		items="{/Customer}">
+		<ColumnListItem id="_IDGenColumnListItem1.1" selected="{selected}">
+			<cells>
+					<ObjectIdentifier id="_IDGenObjectIdentifier12" title="{name}" text="{address}" />
+				
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="_IDGenColumn12" width="12em">
+				<header>
+					<Text id="_IDGenText7.1" text="{i18n>cusatomername}" />
+				</header>
+			</Column>
+			
+			
+			
+		</columns>
+	</TableSelectDialog>
+         
+
+</core:FragmentDefinition>

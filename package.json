@@ -53,7 +53,7 @@
       "db": {
         "kind": "sqlite",
         "credentials": {
-          "database": "db/my-bookshop.db"
+          "database": "db/dahil.db"
         }
       }
     }

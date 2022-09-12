@@ -120,12 +120,17 @@
                     "target": "RouteMain"
                 },
                 {
-                    "pattern": "fg",
+                    "pattern": "sd",
                     "name": "InvoiceMain",
                     "target": "TargetInvoiceMain"
                 },
                 {
-                    "pattern": ":?query:",
+                    "pattern": "",
+                    "name": "CreateInvoice",
+                    "target": "TargetInvoiceCreate"
+                },
+                {
+                    "pattern": "xcvc",
                     "name": "CustomerMain",
                     "target": "TargetCustomerMain"
                 },
@@ -153,28 +158,35 @@
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "InvoiceMain",
-                    "viewName": "InvoiceMain"
+                    "viewName": "InvoiceView/InvoiceMain"
+                },
+                "TargetInvoiceCreate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CreateInvoice",
+                    "viewName": "InvoiceView/CreateInvoice"
                 },
                 "TargetCustomerMain": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "CustomerMain",
-                    "viewName": "CustomerMain"
+                    "viewName": "CustomerView/CustomerMain"
                 },
                 "TargetCustomerDetail": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "CustomerDetail",
-                    "viewName": "CustomerDetail"
+                    "viewName": "CustomerView/CustomerDetail"
                 },
                 "TargetCreateCustomer": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "CreateCustomer",
-                    "viewName": "CreateCustomer"
+                    "viewName": "CustomerView/CreateCustomer"
                 }
             }
         },

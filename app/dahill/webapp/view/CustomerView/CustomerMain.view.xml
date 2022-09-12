@@ -1,4 +1,4 @@
-<mvc:View controllerName="dahill.dahill.controller.CustomerMain"
+<mvc:View controllerName="dahill.dahill.controller.CustomerController.CustomerMain"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>CustomerMaintitle}">
@@ -9,8 +9,21 @@
 					<OverflowToolbar>
 						<content>
 							<ToolbarSpacer/>
-                              <SearchField 	id="searchField" width="78%" search=".onFilterInvoices" />
-							<Button
+                             	<SearchField
+                                    id="searchField"
+                                    width="78%"
+                                    
+                                    placeholder="Search for..."
+                                    enableSuggestions="true"
+                                    search=".onSearch"
+                                    suggest=".onSuggest"
+                                    suggestionItems="{
+                                        path: '/Customer',
+                                        sorter: { path: 'name' }
+                                    }">
+                                    <SuggestionItem text="{path:'name'}" description="{path:'jobLocation'}" key="{name}" />
+                                </SearchField>
+							    <Button
 								id="refreshUsersButton"
 								icon="sap-icon://decline"
 								tooltip="decline"
@@ -24,7 +37,7 @@
 											<layoutData>
 												<OverflowToolbarLayoutData priority="NeverOverflow"/>
 											</layoutData>
-										</Button>
+                                </Button>
                                    
 								<Button
 											id="addUserButton"
@@ -34,7 +47,7 @@
 											<layoutData>
 												<OverflowToolbarLayoutData priority="NeverOverflow"/>
 											</layoutData>
-										</Button>
+                                </Button>
 										
 						</content>
 					</OverflowToolbar>

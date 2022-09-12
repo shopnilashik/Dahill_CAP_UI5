@@ -13,8 +13,16 @@ entity Customer : cuid {
     jobLocation : String;
 }
 
-entity Orders : managed {
-    customer    : Association to Customer;
-    description : String;
-    price       : Double;
+entity Orders : managed, cuid {
+    customer_ID : String;
+    customer    : Association to Customer
+                      on customer.ID = ID;
+    items       : Association to many OrderItems
+                      on items.orderID = ID;
+}
+
+entity OrderItems : cuid {
+    orderID : String;
+    name    : String;
+    price   : Double;
 }

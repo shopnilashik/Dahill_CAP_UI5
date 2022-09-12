@@ -1,4 +1,4 @@
-<mvc:View controllerName="dahill.dahill.controller.InvoiceMain"
+<mvc:View controllerName="dahill.dahill.controller.InvoiceController.InvoiceMain"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>InvoiceMaintitle}">
