@@ -40,31 +40,43 @@
                     showValueHelp="true"
                     valueHelpOnly="true"
                     valueHelpRequest="onCustomerHelper"
-                    width="12.5rem"
-                    class="sapUiSmallMarginBottom"/>
+                    width="100%"
+                    />
 
                 </VBox>
 
                
                 <Label id="Inoice_label_address" text="{i18n>customerAddress}" />
                 <VBox id="_IDGenVBox1">
-               
-                <Input id="Inoice_input_address"  />
-                
+                <Input id="Inoice_input_address" width="100%" />
                 </VBox>
 
                 
                 <Label id="Inoice_label_phone" text="{i18n>customerphone}"  />
                 <VBox id="_IDGenVBox2">
-                <Input id="Inoice_input_phone"  />
-               
+                <Input id="Inoice_input_phone" width="100%" />
                 </VBox>
                 
            
                 <Label id="Inoice_label_jobLocation" text="{i18n>jobLocation}"/>
                 <VBox id="_IDGenVBox4">
-              
-                <Input id="Inoice_input_jobLocation" />
+                <Input id="Inoice_input_jobLocation" width="100%"/> 
+                </VBox>
+
+                <Label id="_IDGenLabel3" text="Invoice Date"></Label>
+                <VBox id="_IDGenVBox5" width="100%">
+                    <DatePicker id="invoice_Date" width="100%"></DatePicker>
+                </VBox>
+
+                <VBox id="_IDGenVBox45" width="100%">  
+                    <Panel id="_IDGenVBox6">
+                        
+                    </Panel>
+                </VBox>
+
+                 <VBox id="_IDGenVBox7" width="100%">
+                   <Button id="add_tem_button" text="{i18n>addItem}" 
+                icon="sap-icon://add" press="onAddItem"/>
                 </VBox>
                 </f:content>
             </f:SimpleForm>

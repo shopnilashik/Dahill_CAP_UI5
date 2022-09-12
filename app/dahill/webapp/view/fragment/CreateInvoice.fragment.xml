@@ -1,7 +1,6 @@
 <core:FragmentDefinition
    xmlns="sap.m"
-   xmlns:core="sap.ui.core" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:ui="sap.ui" 
-   xmlns:f="sap.ui.layout.form">
+   xmlns:core="sap.ui.core" >
  <TableSelectDialog id="_IDGenTableSelectDialog1.1"
 		noDataText="No Data"
 		title="Freight Forwarder Selection"
@@ -11,7 +10,11 @@
 		items="{/Customer}">
 		<ColumnListItem id="_IDGenColumnListItem1.1" selected="{selected}">
 			<cells>
-					<ObjectIdentifier id="_IDGenObjectIdentifier12" title="{name}" text="{address}" />
+					<ObjectIdentifier id="_IDGenObjectIdentifier12" title="{name}"  />
+                            <Text id="create_text_address" text="{address}"/>
+                            <Text id="create_text_phone" text="{phone}" visible="false"/>
+                            <Text id="create_text_jobLocation" text="{jobLocation}" visible="false"/>
+
 				
 			</cells>
 		</ColumnListItem>
@@ -19,6 +22,23 @@
 			<Column id="_IDGenColumn12" width="12em">
 				<header>
 					<Text id="_IDGenText7.1" text="{i18n>cusatomername}" />
+				</header>
+			</Column>
+			<Column id="_IDGenColumn13" width="12em">
+				<header>
+					<Text id="_IDGenText8.1" text="{i18n>customerAddress}" />
+				</header>
+			</Column>
+
+			<Column id="_IDGenColumn15" width="12em">
+				<header>
+					<Text id="_IDGenText9.1" text="{i18n>customerphone}" visible="false"/>
+				</header>
+			</Column>
+
+			<Column id="_IDGenColumn16" width="12em">
+				<header>
+					<Text id="_IDGenText10.1" text="{i18n>jobLocation}" visible="false"/>
 				</header>
 			</Column>
 			

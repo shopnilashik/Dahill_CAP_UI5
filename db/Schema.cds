@@ -15,14 +15,7 @@ entity Customer : cuid {
 
 entity Orders : managed, cuid {
     customer_ID : String;
+    orderItems  : String;
     customer    : Association to Customer
                       on customer.ID = ID;
-    items       : Association to many OrderItems
-                      on items.orderID = ID;
-}
-
-entity OrderItems : cuid {
-    orderID : String;
-    name    : String;
-    price   : Double;
 }
