@@ -61,40 +61,69 @@ sap.ui.define([
                
             },
             onAddItem:function(){ 
-               
-                this._oPnl = this.byId("_IDGenVBox6");
-                var oLabel = new sap.m.Label({
-                    width:"100%",
-                    text:this.count
-                });
-                var oInput1 = new sap.m.TextArea({
-                    width:"100%",
-                    placeholder:`Enter Item ${this.count}`
-                });
-                var oInput2 = new sap.m.Input({
-                    width:"100%",
-                    placeholder:`Enter Amount ${this.count}`
+                var oView = this.getView();
 
-                });
-                var delIcon = new sap.ui.core.Icon({
-                    src:"sap-icon://delete"
-                });
-                var FlexBox1 = new sap.m.FlexBox({
-                    width:"100%",
-                    direction:"Column",
-                    alignItems:"Start",
-                    items:[oLabel,oInput1,oInput2,delIcon]
-                })
-                var  _oCcLayout = new sap.m.FlexBox({
-                    width:"100%",
-                    alignItems:"Center",
-                    justifyContent:"Start",
-                    items:[FlexBox1]
+                if (!this._pValueHelpDialogItem) {
+                    this._pValueHelpDialogItem = Fragment.load({
+                        id: oView.getId(),
+                        name: "dahill.dahill.view.fragment.CreateItem",
+                        controller: this,
+                    }).then(function (oValueHelpDialogItem) {
+                        oView.addDependent(oValueHelpDialogItem);
+                        return oValueHelpDialogItem;
                     });
-                    
-                    this._oPnl.addContent(_oCcLayout);
-                    this.count++;
                 }
+                this._pValueHelpDialogItem.then(
+                    function (oValueHelpDialogItem) {
+                        oValueHelpDialogItem.open();
+                    }.bind(this)
+                );
+
+               
+                },
+                onCancelPressed: function () {
+                    this._pValueHelpDialogItem.then(
+                      function (oDialog) {
+                        oDialog.close();
+                     
+                      }.bind(this)
+                    );
+                  },
+                  onSavePresseditem:function(){
+                    this._oPnl = this.byId("_IDGenVBox6");
+                    var oLabel = new sap.m.Label({
+                        width:"100%",
+                        text:this.count
+                    });
+                    var oInput1 = new sap.m.Text({
+                        width:"100%",
+                        placeholder:`Enter Item ${this.count}`,
+                        text:"shopnil"
+                    });
+                    var oInput2 = new sap.m.Text({
+                        width:"100%",
+                        placeholder:`Enter Amount ${this.count}`,
+                        text:"100"
+                    });
+                    var delIcon = new sap.ui.core.Icon({
+                        src:"sap-icon://delete"
+                    });
+                    var FlexBox1 = new sap.m.FlexBox({
+                        width:"100%",
+                        direction:"Column",
+                        alignItems:"Start",
+                        items:[oLabel,oInput1,oInput2,delIcon]
+                    })
+                    var  _oCcLayout = new sap.m.FlexBox({
+                        width:"100%",
+                        alignItems:"Center",
+                        justifyContent:"SpaceBetween",
+                        items:[oLabel,oInput1,oInput2,delIcon]
+                        });
+                        
+                        this._oPnl.addContent(_oCcLayout);
+                        this.count++;
+                  },
                     
     
         });

@@ -21,18 +21,31 @@
 			columnsM="1"
 			singleContainerFullSize="true" >
 			<f:content>
-      
+			 <Label id="display_label_name" text="Description" required="true" />
+				 <TextArea id="_IDGenTextArea1"
+					 cols="20"
+					 height=""
+					 maxLength="0"
+					 rows="4"
+					 showExceededText="false"
+					 valueLiveUpdate="false"
+					 wrapping="None">
+					 
+				 </TextArea> 
+			 <Label id="display_label_Amount" text="Amount" required="true" />
+			<Input id="input_price" valueLiveUpdate="true"  
+           type="Number"/>
 			</f:content>
 		</f:SimpleForm>
 
-      <Bar id="_IDGenBar1">
+      <Bar id="_IDGenBar1item">
      
         <contentRight>
-          <Button id="save_button" text="{i18n>save}" type="Accept"
-              icon="sap-icon://save" press="onSavePressed" 
+          <Button id="save_button_item" text="{i18n>save}" type="Accept"
+              icon="sap-icon://save" press="onSavePresseditem" 
               />
 
-          <Button id="app_cancel_button" text="{i18n>cancel}" type="Reject"
+          <Button id="item_cancel_button" text="{i18n>cancel}" type="Reject"
               icon="sap-icon://cancel" press="onCancelPressed"
               />
          </contentRight>
