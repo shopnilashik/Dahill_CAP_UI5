@@ -2,17 +2,24 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller","sap/ui/core/routing/History","sap/ui/model/odata/v4/ODataModel","sap/m/MessageToast",
     "sap/m/MessageBox","sap/ui/core/Fragment",
+    "sap/ui/model/json/JSONModel",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,History,ODataModel,MessageToast,MessageBox,Fragment) {
+    function (Controller,History,ODataModel,MessageToast,MessageBox,Fragment,JSONModel) {
         "use strict";
 
         return Controller.extend("dahill.dahill.controller.InvoiceController.CreateInvoice", {
             onInit: function () {
               
                 this.count = 1;
+                var oJsonModel = new JSONModel({
+                    Items:[
+                       
+                    ]
+                })
+                this.getView().setModel(oJsonModel, "oItemData");
             },
             onCustomerHelper:function(){
                 var oView = this.getView();
@@ -89,42 +96,34 @@ sap.ui.define([
                       }.bind(this)
                     );
                   },
-                  onSavePresseditem:function(){
-                    this._oPnl = this.byId("_IDGenVBox6");
-                    var oLabel = new sap.m.Label({
-                        width:"100%",
-                        text:this.count
-                    });
-                    var oInput1 = new sap.m.Text({
-                        width:"100%",
-                        placeholder:`Enter Item ${this.count}`,
-                        text:"shopnil"
-                    });
-                    var oInput2 = new sap.m.Text({
-                        width:"100%",
-                        placeholder:`Enter Amount ${this.count}`,
-                        text:"100"
-                    });
-                    var delIcon = new sap.ui.core.Icon({
-                        src:"sap-icon://delete"
-                    });
-                    var FlexBox1 = new sap.m.FlexBox({
-                        width:"100%",
-                        direction:"Column",
-                        alignItems:"Start",
-                        items:[oLabel,oInput1,oInput2,delIcon]
-                    })
-                    var  _oCcLayout = new sap.m.FlexBox({
-                        width:"100%",
-                        alignItems:"Center",
-                        justifyContent:"SpaceBetween",
-                        items:[oLabel,oInput1,oInput2,delIcon]
-                        });
-                        
-                        this._oPnl.addContent(_oCcLayout);
-                        this.count++;
+                  onCreate:function(data){
+                    console.log(data);
+                    var oList = this.byId("main_table");
+                    var oBinding = oList.getBinding("items");
+                    console.log(oBinding);
+                    var _data = {
+                        id: this.count,
+                        description: data.description,
+                        amount: data.amount,
+                      };
+                    var oModel = this.getView().getModel("oItemData").getData();
+                    console.log(oModel)
+                    oModel.Items.push(_data);
+                    this.getView().getModel("oItemData").setData(oModel);
+                    console.log(oModel);
+                    this.count++;
                   },
+                  onSavePresseditem:function(){
+                    var _description = this.byId("_IDGenTextArea1");
+                    var _amount = this.byId("input_amount");
+                    var description = _description.getValue();
+                    var amount = _amount.getValue();
+                    this.onCreate({description,amount});
+                    
+                  },
+                  
                     
     
         });
     });
+  

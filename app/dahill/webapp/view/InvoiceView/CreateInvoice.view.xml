@@ -68,11 +68,55 @@
                     <DatePicker id="invoice_Date" width="100%"></DatePicker>
                 </VBox>
 
-                <VBox id="_IDGenVBox45" width="100%">  
+                <!-- <VBox id="_IDGenVBox45" width="100%">  
                     <Panel id="_IDGenVBox6">
                         
                     </Panel>
-                </VBox>
+                </VBox> -->
+                  <Table id="main_table" headerText="{i18n>}" items="{oItemData>/Items}"  
+                    growing="true" 
+                    growingThreshold="3"
+                    
+                    border-collapse="collapse">
+                
+                    <columns>
+                        <Column id="main_column_id" minScreenWidth="Small" demandPopin="true" >
+                            
+                        </Column>
+                        <Column id="main_column_name" minScreenWidth="Small" demandPopin="true" hAlign="End">
+                            <Label  id="main_text_name" text="{i18n>description}" design="Bold"/>
+                        </Column>
+                        <Column id="main_column_description" minScreenWidth="Small" demandPopin="true" hAlign="End">
+                            <Label id="main_text_description" text="Amount" design="Bold"/>
+                        </Column>
+                          
+                          <Column id="main_column_stock"  minScreenWidth="Small" demandPopin="true" hAlign="End">
+                            
+                        </Column>
+                       
+                        
+                    </columns>
+                    <items>
+                    <ColumnListItem id="ListItem1" vAlign="Middle" >
+                        <cells>
+                        <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{oItemData>id}"/>
+                        <VBox id="_IDGenVBox9">
+                        <Text id="text_name" text="{oItemData>description}" /> 
+                        </VBox>
+                      
+                        <VBox id="_IDGenVBox8">
+                        <Text id="text_stock" text="{oItemData>amount}" />
+                        </VBox>
+                        
+                         <HBox id="_IDGenVBox10">
+                        <Button id="save_button_itemsd"  class="sapUiTinyMarginEnd" icon="sap-icon://decline" press="onSavePresseditem" />
+                        <Button id="save_button_items"  class="sapUiTinyMargins" icon="sap-icon://edit" press="" />
+                        </HBox>
+                        
+                        </cells>
+                    </ColumnListItem>
+                    </items>
+                </Table>
 
                  <VBox id="_IDGenVBox7" width="100%">
                    <Button id="add_tem_button" text="{i18n>addItem}" 
@@ -83,11 +127,11 @@
              <footer>
                 <Bar id="_IDGenBar11">
                     <contentRight>
-                        <Button id="app_save_button" text="{i18n>save}" type="Accept"
+                        <Button id="app_save_button" text="{i18n>save}" 
                 icon="sap-icon://save" press="onSavePressed"
                />
 
-            <Button id="app_cancel_button" text="{i18n>cancel}" type="Reject"
+            <Button id="app_cancel_button" text="{i18n>cancel}" 
                 icon="sap-icon://cancel" press="onCancelPressed"
                />
                     </contentRight>

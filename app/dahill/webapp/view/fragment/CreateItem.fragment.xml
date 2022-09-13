@@ -32,8 +32,8 @@
 					 wrapping="None">
 					 
 				 </TextArea> 
-			 <Label id="display_label_Amount" text="Amount" required="true" />
-			<Input id="input_price" valueLiveUpdate="true"  
+			 <Label id="_label_Amount" text="Amount" required="true" />
+			<Input id="input_amount" valueLiveUpdate="true"  
            type="Number"/>
 			</f:content>
 		</f:SimpleForm>
@@ -41,11 +41,11 @@
       <Bar id="_IDGenBar1item">
      
         <contentRight>
-          <Button id="save_button_item" text="{i18n>save}" type="Accept"
+          <Button id="save_button_item" text="{i18n>save}" 
               icon="sap-icon://save" press="onSavePresseditem" 
               />
 
-          <Button id="item_cancel_button" text="{i18n>cancel}" type="Reject"
+          <Button id="item_cancel_button" text="{i18n>cancel}" 
               icon="sap-icon://cancel" press="onCancelPressed"
               />
          </contentRight>
