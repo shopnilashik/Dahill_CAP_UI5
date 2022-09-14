@@ -108,9 +108,9 @@
                         <Text id="text_stock" text="{oItemData>amount}" />
                         </VBox>
                         
-                         <HBox id="_IDGenVBox10">
-                        <Button id="save_button_itemsd"  class="sapUiTinyMarginEnd" icon="sap-icon://decline" press="onSavePresseditem" />
-                        <Button id="save_button_items"  class="sapUiTinyMargins" icon="sap-icon://edit" press="" />
+                        <HBox id="_IDGenVBox10">
+                        <Button id="save_button_itemsd"  class="sapUiTinyMarginEnd" icon="sap-icon://decline" press="onDeletePresseditem" />
+                        <Button id="save_button_items"  class="sapUiTinyMargins" icon="sap-icon://edit" press="onEditItemPress" />
                         </HBox>
                         
                         </cells>

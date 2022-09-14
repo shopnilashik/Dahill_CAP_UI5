@@ -22,7 +22,7 @@
 			singleContainerFullSize="true" >
 			<f:content>
 			 <Label id="display_label_name" text="Description" required="true" />
-				 <TextArea id="_IDGenTextArea1"
+				 <TextArea id="Invoice_description_textarea"
 					 cols="20"
 					 height=""
 					 maxLength="0"

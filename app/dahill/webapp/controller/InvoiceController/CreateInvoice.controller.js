@@ -20,6 +20,8 @@ sap.ui.define([
                     ]
                 })
                 this.getView().setModel(oJsonModel, "oItemData");
+                this._description = this.byId("Invoice_description_textarea");
+                this._amount = this.byId("input_amount");
             },
             onCustomerHelper:function(){
                 var oView = this.getView();
@@ -95,6 +97,8 @@ sap.ui.define([
                      
                       }.bind(this)
                     );
+                    this.byId("Invoice_description_textarea").setValue("");
+                    this.byId("input_amount").setValue("");
                   },
                   onCreate:function(data){
                     console.log(data);
@@ -114,13 +118,33 @@ sap.ui.define([
                     this.count++;
                   },
                   onSavePresseditem:function(){
-                    var _description = this.byId("_IDGenTextArea1");
+                    var _description = this.byId("Invoice_description_textarea");
                     var _amount = this.byId("input_amount");
                     var description = _description.getValue();
                     var amount = _amount.getValue();
                     this.onCreate({description,amount});
+                    this._pValueHelpDialogItem.then(
+                        function (oValueHelpDialogItem) {
+                            oValueHelpDialogItem.close();
+                        }.bind(this)
+                    );
+                    this.byId("Invoice_description_textarea").setValue("");
+                    this.byId("input_amount").setValue("");
+
+
                     
                   },
+                  onDeletePresseditem:function(){
+
+                  },
+                  onEditItemPress:function(oEvent){
+                    var  oSource = oEvent.getSource();
+                    var row = oEvent.getSource().findAggregatedObjects();
+                    console.log(row);
+                    // this.byId("Invoice_description_textarea").setValue("shopnil");
+                    // this.onAddItem();
+                   
+                },
                   
                     
     
