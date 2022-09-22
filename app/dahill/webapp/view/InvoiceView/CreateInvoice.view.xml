@@ -2,62 +2,49 @@
       xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-      <customHeader>
+        <customHeader>
             <OverflowToolbar id="_IDGenOverflowToolbar1" >  
             <Button id="Invoice_back_button" type="Back"
             press="onNavButton"/>
                 <Title id="_IDGenTitle1" text="{i18n>title}"/>
-             
-               
             </OverflowToolbar>
-            </customHeader>
+        </customHeader>
 
-             <f:SimpleForm id="create_Invoice"
-                editable="true"
-                layout="ResponsiveGridLayout"
-                title="{i18n>title}"
-                labelSpanXL="3"
-                labelSpanL="3"
-                labelSpanM="3"
-                labelSpanS="12"
-                adjustLabelSpan="false"
-                emptySpanXL="4"
-                emptySpanL="4"
-                emptySpanM="4"
-                emptySpanS="0"
-                columnsXL="1"
-                columnsL="1"
-                columnsM="1"
-                singleContainerFullSize="false" >
-                <f:content>
-                
+        <f:SimpleForm id="create_Invoice"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            title="{i18n>title}"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            columnsXL="1"
+            columnsL="1"
+            singleContainerFullSize="false" >
+            <f:content>
                 <Label id="Inoice_label_name" text="{i18n>cusatomername}" />
                 <VBox id="Inoice_vbox1">
-               
                 <Input
                     id="CustomerInput"
-                    type="Text"
                     showValueHelp="true"
                     valueHelpOnly="true"
                     valueHelpRequest="onCustomerHelper"
                     width="100%"
                     />
-
                 </VBox>
-
-               
                 <Label id="Inoice_label_address" text="{i18n>customerAddress}" />
                 <VBox id="_IDGenVBox1">
                 <Input id="Inoice_input_address" width="100%" />
                 </VBox>
-
                 
                 <Label id="Inoice_label_phone" text="{i18n>customerphone}"  />
                 <VBox id="_IDGenVBox2">
                 <Input id="Inoice_input_phone" width="100%" />
                 </VBox>
                 
-           
                 <Label id="Inoice_label_jobLocation" text="{i18n>jobLocation}"/>
                 <VBox id="_IDGenVBox4">
                 <Input id="Inoice_input_jobLocation" width="100%"/> 
@@ -73,37 +60,39 @@
                         
                     </Panel>
                 </VBox> -->
-                  <Table id="main_table" headerText="{i18n>}" items="{oItemData>/Items}"  
-                    growing="true" 
-                    growingThreshold="3"
                     
-                    border-collapse="collapse">
-                
-                    <columns>
-                        <Column id="main_column_id" minScreenWidth="Small" demandPopin="true" >
-                            
-                        </Column>
-                        <Column id="main_column_name" minScreenWidth="Small" demandPopin="true" hAlign="End">
-                            <Label  id="main_text_name" text="{i18n>description}" design="Bold"/>
-                        </Column>
-                        <Column id="main_column_description" minScreenWidth="Small" demandPopin="true" hAlign="End">
-                            <Label id="main_text_description" text="Amount" design="Bold"/>
-                        </Column>
-                          
-                          <Column id="main_column_stock"  minScreenWidth="Small" demandPopin="true" hAlign="End">
-                            
-                        </Column>
-                       
-                        
-                    </columns>
-                    <items>
-                    <ColumnListItem id="ListItem1" vAlign="Middle" >
-                        <cells>
-                        <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{oItemData>id}"/>
+            </f:content>
+        </f:SimpleForm>
+        <HBox id="_IDGenVBox7" width="100%">
+            <Button id="add_tem_button" 
+            text="{i18n>addItem}" 
+            icon="sap-icon://add"
+            press="onAddItem"/>
+        </HBox>
+        <Table id="main_table" headerText="{i18n>}" items="{oItemData>/Items}"  
+            growing="true" 
+            growingThreshold="3"
+            border-collapse="collapse">
+            <columns>
+                <Column id="main_column_id" minScreenWidth="Small" demandPopin="true" >
+                </Column>   
+                <Column id="main_column_name" minScreenWidth="Small" demandPopin="true" hAlign="End">
+                    <Label  id="main_text_name" text="{i18n>description}" design="Bold"/>
+                </Column>
+                <Column id="main_column_description" minScreenWidth="Small" demandPopin="true" hAlign="End">
+                    <Label id="main_text_description" text="Amount" design="Bold"/>
+                </Column>  
+                <Column id="main_column_stock"  minScreenWidth="Small" demandPopin="true" hAlign="End">   
+            </Column>
+            </columns>
+            <items>
+                <ColumnListItem id="ListItem1" vAlign="Middle" >
+                    <cells>
+                        <!-- <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{oRowCounterModel>/row/rows}"/> -->
                         <VBox id="_IDGenVBox9">
                         <Text id="text_name" text="{oItemData>description}" /> 
                         </VBox>
-                      
+                        
                         <VBox id="_IDGenVBox8">
                         <Text id="text_stock" text="{oItemData>amount}" />
                         </VBox>
@@ -112,29 +101,21 @@
                         <Button id="save_button_itemsd"  class="sapUiTinyMarginEnd" icon="sap-icon://decline" press="onDeletePresseditem" />
                         <Button id="save_button_items"  class="sapUiTinyMargins" icon="sap-icon://edit" press="onEditItemPress" />
                         </HBox>
-                        
-                        </cells>
-                    </ColumnListItem>
-                    </items>
-                </Table>
-
-                 <VBox id="_IDGenVBox7" width="100%">
-                   <Button id="add_tem_button" text="{i18n>addItem}" 
-                icon="sap-icon://add" press="onAddItem"/>
-                </VBox>
-                </f:content>
-            </f:SimpleForm>
-             <footer>
-                <Bar id="_IDGenBar11">
-                    <contentRight>
-                        <Button id="app_save_button" text="{i18n>save}" 
-                icon="sap-icon://save" press="onSavePressed"
-               />
-
-            <Button id="app_cancel_button" text="{i18n>cancel}" 
-                icon="sap-icon://cancel" press="onCancelPressed"
-               />
-                    </contentRight>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    <footer>
+        <Bar id="_IDGenBar11">
+        <contentLeft>
+            <Text text="Total ${oTotalCounterModel>/total}"/>
+        </contentLeft>
+            <contentRight>
+                <Button id="app_save_button" text="{i18n>save}" 
+                        icon="sap-icon://save" press="onSavePressed"/>
+                <Button id="app_cancel_button" text="{i18n>cancel}" 
+                        icon="sap-icon://cancel" press="onCancelPressed"/>
+            </contentRight>
         </Bar>
     </footer>
     </Page>
