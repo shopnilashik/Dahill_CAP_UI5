@@ -74,21 +74,20 @@
             growingThreshold="3"
             border-collapse="collapse">
             <columns>
-                <Column id="main_column_id" minScreenWidth="Small" demandPopin="true" >
-                </Column>   
-                <Column id="main_column_name" minScreenWidth="Small" demandPopin="true" hAlign="End">
+               
+                <Column id="main_column_name" minScreenWidth="Small" demandPopin="true" >
                     <Label  id="main_text_name" text="{i18n>description}" design="Bold"/>
                 </Column>
-                <Column id="main_column_description" minScreenWidth="Small" demandPopin="true" hAlign="End">
+                <Column id="main_column_description" minScreenWidth="Small" demandPopin="true" >
                     <Label id="main_text_description" text="Amount" design="Bold"/>
                 </Column>  
-                <Column id="main_column_stock"  minScreenWidth="Small" demandPopin="true" hAlign="End">   
-            </Column>
+                <Column id="main_column_stock"  minScreenWidth="Small" demandPopin="true" >   
+                    <Label id="main_text_action" text="Action" design="Bold"/>
+                </Column>
             </columns>
             <items>
                 <ColumnListItem id="ListItem1" vAlign="Middle" >
                     <cells>
-                        <!-- <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{oRowCounterModel>/row/rows}"/> -->
                         <VBox id="_IDGenVBox9">
                         <Text id="text_name" text="{oItemData>description}" /> 
                         </VBox>
@@ -111,6 +110,8 @@
             <Text text="Total ${oTotalCounterModel>/total}"/>
         </contentLeft>
             <contentRight>
+                <Button id="preview_btn-edit_item" text="{i18n>preview}" icon="sap-icon://save" press="onPreviewPressedBtn" />
+
                 <Button id="app_save_button" text="{i18n>save}" 
                         icon="sap-icon://save" press="onSavePressed"/>
                 <Button id="app_cancel_button" text="{i18n>cancel}" 

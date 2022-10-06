@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
-    <Dialog id="createItemDialog" title="Add Item">
+    <Dialog id="editItemDialog" title="Edit Item">
         <f:SimpleForm
-            id="SimpleFormItem"
+            id="SimpleFormItemEdit"
             editable="true"
             layout="ResponsiveGridLayout"
             labelSpanXL="3"
@@ -19,18 +19,17 @@
             singleContainerFullSize="true"
         >
             <f:content>
-                <Label id="display_label_name" text="Description" required="true" />
-                <TextArea id="Invoice_description_textarea" cols="20" height="" rows="4" />
-                <Label id="_label_Amount" text="Amount" required="true" />
-                <Input id="input_amount" valueLiveUpdate="true" type="Number" />
+                <Label id="edit_label_name" text="Description" required="true" />
+                <TextArea id="edit_description_textarea" cols="20"  height="" rows="4" />
+                <Label id="edit_label_Amount" text="Amount" required="true" />
+                <Input id="edit_input_amount" valueLiveUpdate="true" type="Number" />
             </f:content>
         </f:SimpleForm>
 
-        <Bar id="_IDGenBar1item">
+        <Bar id="_IDGenBar1item-edit">
             <contentRight>
-                <Button id="save_button_item" text="{i18n>save}" icon="sap-icon://save" press="onSavePresseditem" />
-
-                <Button id="item_cancel_button" text="{i18n>cancel}" icon="sap-icon://cancel" press="onCancelPressed" />
+                <Button id="save_btn-edit_item" text="{i18n>save}" icon="sap-icon://save" press="onSavePressedEdit" />
+                <Button id="item_cancel_btn-edit" text="{i18n>cancel}" icon="sap-icon://cancel" press="onEditItemCancelPressed" />
             </contentRight>
         </Bar>
     </Dialog>

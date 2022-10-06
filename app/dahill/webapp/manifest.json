@@ -130,7 +130,7 @@
                     "target": "TargetInvoiceCreate"
                 },
                 {
-                    "pattern": "xcvc",
+                    "pattern": "we",
                     "name": "CustomerMain",
                     "target": "TargetCustomerMain"
                 },

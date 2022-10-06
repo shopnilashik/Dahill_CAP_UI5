@@ -5,17 +5,15 @@
 		noDataText="No Data"
 		title="Freight Forwarder Selection"
 		search=".handleSearch"
-    confirm=".handleValueHelpClose"
+    	confirm=".handleValueHelpClose"
 		cancel=".handleValueHelpClose"
 		items="{/Customer}">
 		<ColumnListItem id="_IDGenColumnListItem1.1" selected="{selected}">
 			<cells>
-					<ObjectIdentifier id="_IDGenObjectIdentifier12" title="{name}"  />
-                            <Text id="create_text_address" text="{address}"/>
-                            <Text id="create_text_phone" text="{phone}" visible="false"/>
-                            <Text id="create_text_jobLocation" text="{jobLocation}" visible="false"/>
-
-				
+				<ObjectIdentifier id="_IDGenObjectIdentifier12" title="{name}"  />
+				<Text id="create_text_address" text="{address}"/>
+				<Text id="create_text_phone" text="{phone}" visible="false"/>
+				<Text id="create_text_jobLocation" text="{jobLocation}" visible="false"/>
 			</cells>
 		</ColumnListItem>
 		<columns>
@@ -41,8 +39,6 @@
 					<Text id="_IDGenText10.1" text="{i18n>jobLocation}" visible="false"/>
 				</header>
 			</Column>
-			
-			
 			
 		</columns>
 	</TableSelectDialog>

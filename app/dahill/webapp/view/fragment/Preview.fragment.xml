@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" 
+	xmlns:m="sap.m"
+	xmlns:t="sap.ui.table">
+    <Dialog id="PreviewInvoiceDialog" title="Preview Invoice" endButton="Save">
+      	<FlexBox>
+            <m:Image
+				src="{
+					value: 'dahill/dahill//image/Logo.jpg',
+					formatter: 'sap.ui.require.toUrl'
+				}"
+				height="100%" width="30%"/>
+
+        </FlexBox>
+        <FlexBox>
+             <t:Table
+            rows="{oItemData>/Items}"
+            visibleRowCount="3"
+            selectionMode="None">
+            <t:columns>
+                <t:Column>
+                    <Label text="Description"/>
+                    <t:template>
+                        <Text text="{oItemData>description}"/>
+                    </t:template>
+                </t:Column>
+                <t:Column hAlign="End">
+                    <Label text="Amount"/>
+                    <t:template>
+                        <Text
+                            text="{oItemData>amount}"
+                            wrapping="false"
+                        />
+                    </t:template>
+                </t:Column>
+            </t:columns>
+        </t:Table>
+
+        </FlexBox>
+        <Bar id="_IDGenBar1item">
+            <contentRight>
+
+                <Button id="item_close_button" text="{i18n>close}" type="Emphasized" press="onClosePressed" />
+            </contentRight>
+        </Bar>
+    </Dialog>
+</core:FragmentDefinition>
