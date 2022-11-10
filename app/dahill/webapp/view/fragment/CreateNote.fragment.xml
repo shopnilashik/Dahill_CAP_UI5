@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+    <Dialog id="createNoteDialog" title="Add Item">
+        <f:SimpleForm
+            id="SimpleFormNote"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="true"
+        >
+            <f:content>
+                <!-- <Label id="display_label_name" text="Description" required="true" />
+                <TextArea id="Invoice_description_textarea" cols="20" height="" rows="4" />
+                <Label id="_label_Amount" text="Amount" required="true" />
+                <Input id="input_amount" valueLiveUpdate="true" type="Number" /> -->
+            </f:content>
+        </f:SimpleForm>
+
+        <Bar id="_IDGenBarNote">
+            <contentRight>
+                <Button id="save_button_note" text="{i18n>save}" icon="sap-icon://save" press="onSavePresseditem" />
+
+                <Button id="cancel_button_note" text="{i18n>cancel}" icon="sap-icon://cancel" press="onCancelPressed" />
+            </contentRight>
+        </Bar>
+    </Dialog>
+</core:FragmentDefinition>

@@ -71,8 +71,7 @@
         </HBox>
         <Table id="main_table" headerText="{i18n>}" items="{oItemData>/Items}"  
             growing="true" 
-            growingThreshold="3"
-            border-collapse="collapse">
+            growingThreshold="3">
             <columns>
                
                 <Column id="main_column_name" minScreenWidth="Small" demandPopin="true" >
@@ -104,6 +103,12 @@
                 </ColumnListItem>
             </items>
         </Table>
+        <HBox id="_IDGenVBox" width="100%">
+            <Button id="add_note_btn" 
+            text="{i18n>addNote}" 
+            icon="sap-icon://add"
+            press="onAddNote"/>
+        </HBox>
     <footer>
         <Bar id="_IDGenBar11">
         <contentLeft>

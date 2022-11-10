@@ -1,19 +1,86 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" 
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" id="previewID"
 	xmlns:m="sap.m"
 	xmlns:t="sap.ui.table">
-    <Dialog id="PreviewInvoiceDialog" title="Preview Invoice" endButton="Save">
-      	<FlexBox>
-            <m:Image
-				src="{
-					value: 'dahill/dahill//image/Logo.jpg',
-					formatter: 'sap.ui.require.toUrl'
-				}"
-				height="100%" width="30%"/>
+    <Dialog id="PreviewInvoiceDialog" title="Preview Invoice">
+      	<FlexBox width="100%" >
+            <FlexBox width="100%">
+                <m:Image
+                    src="{
+                        value: 'dahill/dahill//image/Logo.jpg',
+                        formatter: 'sap.ui.require.toUrl'
+                    }"
+                    height="100%" width="100%"/>
 
+            </FlexBox>
+             <FlexBox width="100%" class="sapUiSmallMarginTop">
+                <HBox
+                >
+                <VBox
+                >
+                    <Label
+                        design="Bold"
+                        text="Customer Name"
+                    >   
+                    </Label>
+                    <Text
+                        id="preCustomerName"
+                        text="Shopnil Ashik"
+                    >  
+                    </Text>
+
+                    <Label
+                        design="Bold"
+                        text="Customer Address"
+                    >   
+                    </Label>
+                    <Text
+                        id="preCutomerAddress"
+                        text="40 Washington Square S, New York, NY 10012, USA"
+                    >  
+                    </Text>
+
+                    <Label
+                        design="Bold"
+                        text="Customer Phone"
+                    >   
+                    </Label>
+                    <Text
+                        id="preCutomerPhone"
+                        text="+69421655"
+                    >  
+                    </Text>
+
+                    <Label
+                        design="Bold"
+                        text="Job Location"
+                    >   
+                    </Label>
+                    <Text
+                        id="preJobLocation"
+                        text="40 Washington Square S, New York, NY 10012, USA"
+                    >  
+                    </Text>
+
+                    <Label
+                        design="Bold"
+                        text="Invoice Date"
+                    >   
+                    </Label>
+                    <Text
+                        id="preInvoiceDate"
+                        text="04/09/2022"
+                    >  
+                    </Text>
+                    
+                </VBox>
+
+                </HBox>
+
+            </FlexBox>
         </FlexBox>
         <FlexBox>
              <t:Table
-            rows="{oItemData>/Items}"
+            rows="{oItemData>/Items}" alternateRowColors="true"
             visibleRowCount="3"
             selectionMode="None">
             <t:columns>
@@ -36,7 +103,13 @@
         </t:Table>
 
         </FlexBox>
-        <Bar id="_IDGenBar1item">
+        <FlexBox alignItems="Start" justifyContent="End" >
+        <Label class="sapUiSmallMarginEnd sapUiTinyMarginTop" design="Bold"
+            text="Total $30"
+        > 
+        </Label>
+        </FlexBox>
+        <Bar id="previewInvoiceBar">
             <contentRight>
 
                 <Button id="item_close_button" text="{i18n>close}" type="Emphasized" press="onClosePressed" />

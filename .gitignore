@@ -1,6 +1,5 @@
 # CAP Dahil
 _out
-*.db
 connection.properties
 default-*.json
 .cdsrc-private.json

@@ -48,8 +48,6 @@ sap.ui.define(
                             amount:10
                            }
 
-
-
                         ],
                     });
                     var oTotalCounterModel = new JSONModel({
@@ -290,8 +288,12 @@ sap.ui.define(
                     // opdfViewer.setTitle( "My PDF");
                     // opdfViewer.open();
                     // pdfMake.createPdf(oModel).
+                    const cusName = this.byId("CustomerInput").getValue();
+                    const cusAddress = this.byId("Inoice_input_address").getValue();
+                    const cusPhone = this.byId("Inoice_input_phone").getValue();
+                    const jobLocation = this.byId("Inoice_input_jobLocation").getValue();
+                    const invoiceDate = this.byId("invoice_Date").getValue();
                     var oView = this.getView();
-
                     if (!this._pValueHelpDialogItemPreview) {
                         this._pValueHelpDialogItemPreview = Fragment.load({
                             id: oView.getId(),
@@ -304,7 +306,18 @@ sap.ui.define(
                     }
                     this._pValueHelpDialogItemPreview.then(
                         function (oValueHelpDialogPreview) {
-                            oValueHelpDialogPreview.open();
+                            if(cusName.length && cusAddress.length && cusPhone.length && jobLocation.length && invoiceDate.length > 0){
+                                this.byId("preCustomerName").setText(cusName);
+                                this.byId("preCutomerAddress").setText(cusAddress);
+                                this.byId("preCutomerPhone").setText(cusPhone);
+                                this.byId("preJobLocation").setText(jobLocation);
+                                this.byId("preInvoiceDate").setText(invoiceDate);
+                                oValueHelpDialogPreview.open();
+                            }
+                            else{
+                                MessageToast.show("Please Provide All Data");
+                            }
+
                         }.bind(this)
                     );
                 },
@@ -315,6 +328,20 @@ sap.ui.define(
                         }.bind(this)
                         );
                 },
+                onAddNote:function(){
+                    var oView = this.getView();
+                    if (!this._pValueHelpDialogNote) {
+                        this._pValueHelpDialogNote = Fragment.load({
+                            id: oView.getId(),
+                            name: "dahill.dahill.view.fragment.CreateNote",
+                            controller: this,
+                        }).then(function (oValueHelpDialogNote) {
+                            oView.addDependent(oValueHelpDialogNote);
+
+                            return oValueHelpDialogNote;
+                        });
+                    }
+                }
             }
         );
     }
