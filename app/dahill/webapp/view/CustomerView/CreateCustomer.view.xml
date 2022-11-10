@@ -1,4 +1,4 @@
-<mvc:View controllerName="dahill.dahill.controller.InvoiceController.CreateCustomer"
+<mvc:View controllerName="dahill.dahill.controller.CustomerController.CreateCustomer"
       xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">

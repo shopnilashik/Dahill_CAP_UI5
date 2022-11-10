@@ -120,7 +120,7 @@
                     "target": "RouteMain"
                 },
                 {
-                    "pattern": "sd",
+                    "pattern": "dfsd",
                     "name": "InvoiceMain",
                     "target": "TargetInvoiceMain"
                 },
@@ -130,7 +130,7 @@
                     "target": "TargetInvoiceCreate"
                 },
                 {
-                    "pattern": "we",
+                    "pattern": "dsfsdf",
                     "name": "CustomerMain",
                     "target": "TargetCustomerMain"
                 },

@@ -58,7 +58,6 @@ sap.ui.define([
                   else{
                     MessageToast.show("Please Provide All Data");
                   }
-                
                 },
                 onCancelPressed:function(){
                 this.clearField();
