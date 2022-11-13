@@ -70,6 +70,9 @@ sap.ui.define(
                     this._total = 0;
                     this._totalCalculation();
                     this._editId = 0;
+                    fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(response => response.json())
+                    .then(json => console.log(json));
                 },
                 onCustomerHelper: function () {
                     var oView = this.getView();
