@@ -17,7 +17,7 @@
     "sqlite3": "^5.0.11"
   },
   "scripts": {
-    "start": "cds watch",
+    "start": "cds run",
     "watch-dahill": "cds watch --open dahill/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "engines": {
