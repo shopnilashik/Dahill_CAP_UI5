@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
-    <Dialog id="createNoteDialog" title="Add Item">
+    <Dialog id="createNoteDialog" title="Add Note">
         <f:SimpleForm
             id="SimpleFormNote"
             editable="true"
@@ -19,18 +19,16 @@
             singleContainerFullSize="true"
         >
             <f:content>
-                <!-- <Label id="display_label_name" text="Description" required="true" />
-                <TextArea id="Invoice_description_textarea" cols="20" height="" rows="4" />
-                <Label id="_label_Amount" text="Amount" required="true" />
-                <Input id="input_amount" valueLiveUpdate="true" type="Number" /> -->
+                <Label id="note_description_name" text="Description" required="true" />
+                <TextArea id="Invoice_description_note" cols="20" height="" rows="4" />
             </f:content>
         </f:SimpleForm>
 
         <Bar id="_IDGenBarNote">
             <contentRight>
-                <Button id="save_button_note" text="{i18n>save}" icon="sap-icon://save" press="onSavePresseditem" />
+                <Button id="save_button_note" text="{i18n>save}" icon="sap-icon://save" press="onSavePressedNote" />
 
-                <Button id="cancel_button_note" text="{i18n>cancel}" icon="sap-icon://cancel" press="onCancelPressed" />
+                <Button id="cancel_button_note" text="{i18n>cancel}" icon="sap-icon://cancel" press="onCancelPressedNote" />
             </contentRight>
         </Bar>
     </Dialog>

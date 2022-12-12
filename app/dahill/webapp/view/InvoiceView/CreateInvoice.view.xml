@@ -1,58 +1,36 @@
-<mvc:View controllerName="dahill.dahill.controller.InvoiceController.CreateInvoice"
-      xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
-    xmlns="sap.m">
+<mvc:View controllerName="dahill.dahill.controller.InvoiceController.CreateInvoice" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <customHeader>
-            <OverflowToolbar id="_IDGenOverflowToolbar1" >  
-            <Button id="Invoice_back_button" type="Back"
-            press="onNavButton"/>
-                <Title id="_IDGenTitle1" text="{i18n>title}"/>
+            <OverflowToolbar id="_IDGenOverflowToolbar1">
+                <Button id="Invoice_back_button" type="Back" press="onNavButton" />
+                <Title id="_IDGenTitle1" text="{i18n>title}" />
             </OverflowToolbar>
         </customHeader>
 
-        <f:SimpleForm id="create_Invoice"
-            editable="true"
-            layout="ResponsiveGridLayout"
-            title="{i18n>title}"
-            labelSpanXL="3"
-            labelSpanL="3"
-            labelSpanM="3"
-            adjustLabelSpan="false"
-            emptySpanXL="4"
-            emptySpanL="4"
-            emptySpanM="4"
-            columnsXL="1"
-            columnsL="1"
-            singleContainerFullSize="false" >
+        <f:SimpleForm id="create_Invoice" editable="true" layout="ResponsiveGridLayout" title="{i18n>title}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" columnsXL="1" columnsL="1" singleContainerFullSize="false">
             <f:content>
                 <Label id="Inoice_label_name" text="{i18n>cusatomername}" />
                 <VBox id="Inoice_vbox1">
-                <Input
-                    id="CustomerInput"
-                    showValueHelp="true"
-                    valueHelpOnly="true"
-                    valueHelpRequest="onCustomerHelper"
-                    width="100%"
-                    />
+                    <Input id="CustomerInput" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCustomerHelper" width="100%" />
                 </VBox>
                 <Label id="Inoice_label_address" text="{i18n>customerAddress}" />
                 <VBox id="_IDGenVBox1">
-                <Input id="Inoice_input_address" width="100%" />
-                </VBox>
-                
-                <Label id="Inoice_label_phone" text="{i18n>customerphone}"  />
-                <VBox id="_IDGenVBox2">
-                <Input id="Inoice_input_phone" width="100%" />
-                </VBox>
-                
-                <Label id="Inoice_label_jobLocation" text="{i18n>jobLocation}"/>
-                <VBox id="_IDGenVBox4">
-                <Input id="Inoice_input_jobLocation" width="100%"/> 
+                    <Input id="Inoice_input_address" width="100%" />
                 </VBox>
 
-                <Label id="_IDGenLabel3" text="Invoice Date"></Label>
+                <Label id="Inoice_label_phone" text="{i18n>customerphone}" />
+                <VBox id="_IDGenVBox2">
+                    <Input id="Inoice_input_phone" width="100%" />
+                </VBox>
+
+                <Label id="Inoice_label_jobLocation" text="{i18n>jobLocation}" />
+                <VBox id="_IDGenVBox4">
+                    <Input id="Inoice_input_jobLocation" width="100%" />
+                </VBox>
+
+                <Label id="_IDGenLabel3" text="Invoice Date" />
                 <VBox id="_IDGenVBox5" width="100%">
-                    <DatePicker id="invoice_Date" width="100%"></DatePicker>
+                    <DatePicker id="invoice_Date" width="100%" />
                 </VBox>
 
                 <!-- <VBox id="_IDGenVBox45" width="100%">  
@@ -60,69 +38,87 @@
                         
                     </Panel>
                 </VBox> -->
-                    
             </f:content>
         </f:SimpleForm>
-        <HBox id="_IDGenVBox7" width="100%">
-            <Button id="add_tem_button" 
-            text="{i18n>addItem}" 
-            icon="sap-icon://add"
-            press="onAddItem"/>
+        <HBox id="_IDGenVBox7" width="100%" class="sapUiSmallMargin">
+            <Button id="add_tem_button" text="{i18n>addItem}" icon="sap-icon://add" press="onAddItem" />
         </HBox>
-        <Table id="main_table" headerText="{i18n>}" items="{oItemData>/Items}"  
-            growing="true" 
-            growingThreshold="3">
+        <Table id="main_table" headerText="{i18n>}" items="{oItemData>/Items}" growing="true">
             <columns>
-               
-                <Column id="main_column_name" minScreenWidth="Small" demandPopin="true" >
-                    <Label  id="main_text_name" text="{i18n>description}" design="Bold"/>
+                <Column id="main_column_counter" minScreenWidth="Small" demandPopin="true" popinDisplay="Block">
+                    <Label id="main_text_counter" text="Item No" design="Bold" />
                 </Column>
-                <Column id="main_column_description" minScreenWidth="Small" demandPopin="true" >
-                    <Label id="main_text_description" text="Amount" design="Bold"/>
-                </Column>  
-                <Column id="main_column_stock"  minScreenWidth="Small" demandPopin="true" >   
-                    <Label id="main_text_action" text="Action" design="Bold"/>
+                <Column id="main_column_name" minScreenWidth="Small" demandPopin="true">
+                    <Label id="main_text_name" text="{i18n>description}" design="Bold" />
+                </Column>
+                <Column id="main_column_description" minScreenWidth="Small" demandPopin="true">
+                    <Label id="main_text_description" text="Amount" design="Bold" />
+                </Column>
+                <Column id="main_column_stock" minScreenWidth="Small" demandPopin="true">
+                    <Label id="main_text_action" text="Action" design="Bold" />
                 </Column>
             </columns>
             <items>
-                <ColumnListItem id="ListItem1" vAlign="Middle" >
+                <ColumnListItem id="ListItem1" vAlign="Middle">
                     <cells>
+                        <VBox id="_IDGenVBox82">
+                            <Text id="counter" text="{oItemData>counter}" />
+                        </VBox>
+
                         <VBox id="_IDGenVBox9">
-                        <Text id="text_name" text="{oItemData>description}" /> 
+                            <Text id="text_name" text="{oItemData>description}" />
                         </VBox>
-                        
+
                         <VBox id="_IDGenVBox8">
-                        <Text id="text_stock" text="{oItemData>amount}" />
+                            <Text id="text_stock" text="{oItemData>amount}" />
                         </VBox>
-                        
+
                         <HBox id="_IDGenVBox10">
-                        <Button id="save_button_itemsd"  class="sapUiTinyMarginEnd" icon="sap-icon://decline" press="onDeletePresseditem" />
-                        <Button id="save_button_items"  class="sapUiTinyMargins" icon="sap-icon://edit" press="onEditItemPress" />
+                            <Button id="save_button_itemsd" class="sapUiTinyMarginEnd" icon="sap-icon://decline" press="onDeletePresseditem" />
+                            <Button id="save_button_items" class="sapUiTinyMargins" icon="sap-icon://edit" press="onEditItemPress" />
                         </HBox>
                     </cells>
                 </ColumnListItem>
             </items>
         </Table>
-        <HBox id="_IDGenVBox" width="100%">
-            <Button id="add_note_btn" 
-            text="{i18n>addNote}" 
-            icon="sap-icon://add"
-            press="onAddNote"/>
+        <HBox id="_IDGenVBox" width="100%" class="sapUiSmallMargin">
+            <Button id="add_note_btn" text="{i18n>addNote}" icon="sap-icon://add" press=".onAddNote" />
         </HBox>
-    <footer>
-        <Bar id="_IDGenBar11">
-        <contentLeft>
-            <Text text="Total ${oTotalCounterModel>/total}"/>
-        </contentLeft>
-            <contentRight>
-                <Button id="preview_btn-edit_item" text="{i18n>preview}" icon="sap-icon://save" press="onPreviewPressedBtn" />
+        <Table id="note_table" headerText="{i18n>}" items="{oItemData>/Note}" growing="true">
+            <columns>
+                <Column id="main_column_note" minScreenWidth="Small" demandPopin="true" popinDisplay="Block">
+                    <Label id="main_text_note" text="Additional Note" design="Bold" />
+                </Column>
+                <Column id="main_column_acttion_note" minScreenWidth="Small" demandPopin="true">
+                    <Label id="main_text_action_note" design="Bold" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem id="ListItem45" vAlign="Middle">
+                    <cells>
+                        <VBox id="_IDGenVBox834">
+                            <Text id="note" text="{oItemData>description}" />
+                        </VBox>
+                        <HBox id="_IDGenVBox130">
+                            <Button id="save_button_note1" class="sapUiTinyMarginEnd" icon="sap-icon://decline" press="onDeletePresseditem" />
+                            <Button id="edit_button_note1" class="sapUiTinyMargins" icon="sap-icon://edit" press="onEditItemPress" />
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <footer>
+            <Bar id="_IDGenBar11">
+                <contentLeft>
+                    <Text text="Total ${oTotalCounterModel>/total}" />
+                </contentLeft>
+                <contentRight>
+                    <Button id="preview_btn-edit_item" text="{i18n>preview}" icon="sap-icon://save" press="onPreviewPressedBtn" />
 
-                <Button id="app_save_button" text="{i18n>save}" 
-                        icon="sap-icon://save" press="onSavePressed"/>
-                <Button id="app_cancel_button" text="{i18n>cancel}" 
-                        icon="sap-icon://cancel" press="onCancelPressed"/>
-            </contentRight>
-        </Bar>
-    </footer>
+                    <Button id="app_save_button" text="{i18n>save}" icon="sap-icon://save" press="onSavePressed" />
+                    <Button id="app_cancel_button" text="{i18n>cancel}" icon="sap-icon://cancel" press="onCancelPressed" />
+                </contentRight>
+            </Bar>
+        </footer>
     </Page>
 </mvc:View>

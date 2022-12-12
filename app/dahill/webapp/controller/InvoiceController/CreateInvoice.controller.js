@@ -35,21 +35,31 @@ sap.ui.define(
                            {
                             id:"",
                             description:"Repair and fixed the intercom cable.",
-                            amount:10
+                            amount:10,
+                            counter: 1
                            },
                            {
                             id:"",
                             description:"Repair and fixed the intercom cable. Install new amplifier in the basement for control the system. ",
-                            amount:10
+                            amount:10,
+                            counter: 2
                            },
                            {
                             id:"",
                             description:"Repair and fixed the intercom cable. Install new amplifier in the basement for control the system.Replace and install new outdoor push bottom panel front of the building. ",
-                            amount:10
+                            amount:10,
+                            counter: 3
                            }
 
                         ],
+                        Note:[
+                            {
+                                description: "Repair and fixed the intercom cable",
+                                counter: 1
+                            }
+                        ]
                     });
+                    
                     var oTotalCounterModel = new JSONModel({
                         total: 0,
                     });
@@ -70,9 +80,6 @@ sap.ui.define(
                     this._total = 0;
                     this._totalCalculation();
                     this._editId = 0;
-                    fetch('https://jsonplaceholder.typicode.com/users')
-                    .then(response => response.json())
-                    .then(json => console.log(json));
                 },
                 onCustomerHelper: function () {
                     var oView = this.getView();
@@ -178,6 +185,7 @@ sap.ui.define(
                         id: this.count,
                         description: data.description,
                         amount: data.amount,
+                        counter:  this.count
                     };
                     
                     // console.log(oModel)
@@ -226,6 +234,7 @@ sap.ui.define(
                     }
                     oModel.Items.splice(index, 1);
                     this.getView().getModel("oItemData").setData(oModel);
+                    this._itemCounter();
                 },
                 onEditItemPress: function (oEvent) {
                     var getObject = oEvent
@@ -253,13 +262,21 @@ sap.ui.define(
                         }.bind(this)
                     );
                 },
+                _itemCounter: function(){
+                    var oModel = this.getView().getModel("oItemData").getData();
+                    for (let i = 0; i < oModel.Items.length; i++) {
+                        oModel.Items[i].counter = i + 1;
+                    }
+                    this.getView().getModel("oItemData").setData(oModel);
+                },
                 _totalCalculation: function () {
                     const oTotalCounterModel =
-                        this.getView().getModel("oTotalCounterModel");
+                    this.getView().getModel("oTotalCounterModel");
                     var oModel = this.getView().getModel("oItemData").getData();
                     let arr = [];
                     for (let i = 0; i < oModel.Items.length; i++) {
                         var temp = oModel.Items[i];
+                        oModel.Items[i].counter = i + 1;
                         arr.push(temp.amount);
                     }
                     this._total = 0;
@@ -333,6 +350,7 @@ sap.ui.define(
                 },
                 onAddNote:function(){
                     var oView = this.getView();
+                    console.log(this._pValueHelpDialogNote);
                     if (!this._pValueHelpDialogNote) {
                         this._pValueHelpDialogNote = Fragment.load({
                             id: oView.getId(),
@@ -340,11 +358,44 @@ sap.ui.define(
                             controller: this,
                         }).then(function (oValueHelpDialogNote) {
                             oView.addDependent(oValueHelpDialogNote);
+                            console.log(oValueHelpDialogNote);
 
                             return oValueHelpDialogNote;
                         });
                     }
-                }
+                    this._pValueHelpDialogNote.then(
+                        function (oValueHelpDialogNote) {
+                            oValueHelpDialogNote.open();
+                        }.bind(this)
+                    );
+                },
+                onCancelPressedNote: function() {
+                    this._pValueHelpDialogNote.then(
+                        function (oValueHelpDialogNote) {
+                            oValueHelpDialogNote.close();
+                        }.bind(this)
+                        );
+                },
+                onSavePressedNote:function(){
+                    const data = this.byId("Invoice_description_note").getValue();
+                    if(data){
+                    const oModel = this.getView().getModel("oItemData");
+                    const oModelData = oModel.getData();
+                    this.count = oModelData.Note.length + 1;
+                    var _data = {
+                        description: data,
+                        counter:  this.count,
+                    };
+                    oModelData.Note.push(_data);
+                    oModel.setData(oModelData);
+                    console.log(oModelData);
+                    this.count++;
+                    this.onCancelPressedNote();
+                    }else{
+                        MessageToast.show("Please Add Note");
+                    }
+                    
+                },
             }
         );
     }
