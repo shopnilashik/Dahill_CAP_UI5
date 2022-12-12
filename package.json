@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^6",
+    "@sap/cds": "^6.3.2",
+    "cds-mysql": "^6.3.6",
     "express": "^4"
   },
   "devDependencies": {
@@ -51,9 +52,11 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": "db/dahil.db"
+        "kind": "mysql"
+      },
+      "kinds": {
+        "mysql": {
+          "impl": "cds-mysql"
         }
       }
     }
