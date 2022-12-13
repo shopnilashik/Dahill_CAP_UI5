@@ -45,8 +45,8 @@
         </HBox>
         <Table id="main_table" headerText="{i18n>}" items="{oItemData>/Items}" growing="true">
             <columns>
-                <Column id="main_column_counter" minScreenWidth="Small" demandPopin="true" popinDisplay="Block">
-                    <Label id="main_text_counter" text="Item No" design="Bold" />
+                <Column id="main_column_counter" minScreenWidth="Small" demandPopin="true">
+                    <Label id="main_text_counter" text="{i18n>itemNo}" design="Bold" />
                 </Column>
                 <Column id="main_column_name" minScreenWidth="Small" demandPopin="true">
                     <Label id="main_text_name" text="{i18n>description}" design="Bold" />
@@ -55,7 +55,7 @@
                     <Label id="main_text_description" text="Amount" design="Bold" />
                 </Column>
                 <Column id="main_column_stock" minScreenWidth="Small" demandPopin="true">
-                    <Label id="main_text_action" text="Action" design="Bold" />
+                    <Label id="main_text_action" text="{i18n>action}" design="Bold" />
                 </Column>
             </columns>
             <items>
@@ -86,6 +86,9 @@
         </HBox>
         <Table id="note_table" headerText="{i18n>}" items="{oItemData>/Note}" growing="true">
             <columns>
+            <Column id="main_column_note_counter" minScreenWidth="Small" demandPopin="true" popinDisplay="Block">
+                    <Label id="main_text_note_counter" text="{i18n>counter}" design="Bold" />
+                </Column>
                 <Column id="main_column_note" minScreenWidth="Small" demandPopin="true" popinDisplay="Block">
                     <Label id="main_text_note" text="Additional Note" design="Bold" />
                 </Column>
@@ -96,6 +99,9 @@
             <items>
                 <ColumnListItem id="ListItem45" vAlign="Middle">
                     <cells>
+                    <VBox id="_IDGenV">
+                            <Text id="noteCounter" text="{oItemData>counter}" />
+                        </VBox>
                         <VBox id="_IDGenVBox834">
                             <Text id="note" text="{oItemData>description}" />
                         </VBox>

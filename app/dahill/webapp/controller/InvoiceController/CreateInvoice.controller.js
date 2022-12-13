@@ -177,7 +177,6 @@ sap.ui.define(
                 onCreate: function (data) {
                     var oList = this.byId("main_table");
                     var oBinding = oList.getBinding("items");
-                    // console.log(oBinding);
                     var oModel = this.getView().getModel("oItemData").getData();
                     console.log(oModel.Items.length)
                     this.count = oModel.Items.length + 1;
@@ -350,7 +349,6 @@ sap.ui.define(
                 },
                 onAddNote:function(){
                     var oView = this.getView();
-                    console.log(this._pValueHelpDialogNote);
                     if (!this._pValueHelpDialogNote) {
                         this._pValueHelpDialogNote = Fragment.load({
                             id: oView.getId(),
@@ -358,8 +356,6 @@ sap.ui.define(
                             controller: this,
                         }).then(function (oValueHelpDialogNote) {
                             oView.addDependent(oValueHelpDialogNote);
-                            console.log(oValueHelpDialogNote);
-
                             return oValueHelpDialogNote;
                         });
                     }
@@ -388,7 +384,6 @@ sap.ui.define(
                     };
                     oModelData.Note.push(_data);
                     oModel.setData(oModelData);
-                    console.log(oModelData);
                     this.count++;
                     this.onCancelPressedNote();
                     }else{
