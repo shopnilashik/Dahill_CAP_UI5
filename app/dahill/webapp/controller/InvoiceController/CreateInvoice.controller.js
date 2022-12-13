@@ -55,7 +55,18 @@ sap.ui.define(
                         Note:[
                             {
                                 description: "Repair and fixed the intercom cable",
-                                counter: 1
+                                counter: 1,
+                                id: 1
+                            }
+                        ],
+                        Type:[
+                            {
+                                type: "Invoice",
+                                key:1
+                            },
+                            {
+                                type: "Proposal",
+                                key:2
                             }
                         ]
                     });
@@ -369,6 +380,7 @@ sap.ui.define(
                     this._pValueHelpDialogNote.then(
                         function (oValueHelpDialogNote) {
                             oValueHelpDialogNote.close();
+                            this.byId("Invoice_description_note").setValue("")
                         }.bind(this)
                         );
                 },
@@ -381,6 +393,7 @@ sap.ui.define(
                     var _data = {
                         description: data,
                         counter:  this.count,
+                        id: this.count
                     };
                     oModelData.Note.push(_data);
                     oModel.setData(oModelData);
@@ -390,6 +403,26 @@ sap.ui.define(
                         MessageToast.show("Please Add Note");
                     }
                     
+                },
+                onDeletePressedNote: function (oEvent) {
+                    var getObjectId = oEvent
+                        .getSource().getParameter("listItem")
+                        .getBindingContext("oItemData").getObject().id;
+                        console.log(getObjectId);
+                    var oModel = this.getView().getModel("oItemData").getData();
+                    for (let i = 0; i < oModel.Note.length; i++) {
+                        var temp = oModel.Note[i];
+                        if (temp.id === getObjectId) {
+                            var index = i;
+                            temp = "";
+                            break;
+                        }
+                    }
+                    oModel.Note.splice(index, 1);
+                    for (let i = 0; i < oModel.Note.length; i++) {
+                        oModel.Note[i].counter = i + 1;
+                    }
+                    this.getView().getModel("oItemData").setData(oModel);
                 },
             }
         );

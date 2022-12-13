@@ -29,25 +29,49 @@
             </FlexBox>
         </FlexBox>
         <FlexBox>
-            <t:Table rows="{oItemData>/Items}" alternateRowColors="true" visibleRowCount="3" selectionMode="None">
+        <List headerText="{i18n>description}" class="sapUiResponsiveMargin" width="auto" items="{oItemData>/Items}">
+                <!-- <items>
+                    <ObjectListItem title="{oItemData>counter}. {oItemData>description}" titleTextDirection="Inherit" 
+                    number="{oItemData>amount}" numberUnit="$"/>
+                </items> -->
+                <StandardListItem
+                    title="{oItemData>counter}. {oItemData>description}"
+                    description="{oItemData>amount}" wrapping="true"
+                    iconDensityAware="false"
+                    iconInset="false" />
+            </List>
+            <!-- <t:Table rows="{oItemData>/Items}" alternateRowColors="true" selectionMode="None">
                 <t:columns>
-                    <t:Column>
+                    <t:Column width="40px" hAlign="Center">
+                        <Label text="No" />
+                        <t:template>
+                            <Text text="{oItemData>counter}" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="100%">
                         <Label text="Description" />
                         <t:template>
                             <Text text="{oItemData>description}" />
                         </t:template>
                     </t:Column>
-                    <t:Column hAlign="End">
+                    <t:Column hAlign="Center" width="50px">
                         <Label text="Amount" />
                         <t:template>
-                            <Text text="{oItemData>amount}" wrapping="false" />
+                            <Text text="$ {oItemData>amount}" wrapping="false" />
                         </t:template>
                     </t:Column>
                 </t:columns>
-            </t:Table>
+            </t:Table> -->
+        </FlexBox>
+        <FlexBox>
+            <List headerText="{i18n>note}" class="sapUiResponsiveMargin" width="100%" items="{oItemData>/Note}">
+                <items>
+                    <ObjectListItem title="{oItemData>description}" />
+                </items>
+            </List>
         </FlexBox>
         <FlexBox alignItems="Start" justifyContent="End">
-            <Label class="sapUiSmallMarginEnd sapUiTinyMarginTop" design="Bold" text="Total $30" />
+            <Label class="sapUiSmallMarginEnd sapUiTinyMarginTop" design="Bold" text="Total ${oTotalCounterModel>/total}" />
         </FlexBox>
         <Bar id="previewInvoiceBar">
             <contentRight>
