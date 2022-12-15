@@ -36,7 +36,7 @@
                 </items> -->
                 <StandardListItem
                     title="{oItemData>counter}. {oItemData>description}"
-                    description="{oItemData>amount}" wrapping="true"
+                    description="${oItemData>amount}" wrapping="true"
                     iconDensityAware="false"
                     iconInset="false" />
             </List>

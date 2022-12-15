@@ -323,6 +323,7 @@ sap.ui.define(
                     const cusPhone = this.byId("Inoice_input_phone").getValue();
                     const jobLocation = this.byId("Inoice_input_jobLocation").getValue();
                     const invoiceDate = this.byId("invoice_Date").getValue();
+                    const invoiceType = this.byId("invoiceComboBox").getValue();
                     var oView = this.getView();
                     if (!this._pValueHelpDialogItemPreview) {
                         this._pValueHelpDialogItemPreview = Fragment.load({
@@ -336,12 +337,13 @@ sap.ui.define(
                     }
                     this._pValueHelpDialogItemPreview.then(
                         function (oValueHelpDialogPreview) {
-                            if(cusName.length && cusAddress.length && cusPhone.length && jobLocation.length && invoiceDate.length > 0){
+                            if(cusName.length && cusAddress.length && cusPhone.length && jobLocation.length && invoiceDate.length && invoiceType.length > 0){
                                 this.byId("preCustomerName").setText(cusName);
                                 this.byId("preCutomerAddress").setText(cusAddress);
                                 this.byId("preCutomerPhone").setText(cusPhone);
                                 this.byId("preJobLocation").setText(jobLocation);
                                 this.byId("preInvoiceDate").setText(invoiceDate);
+                                this.byId("PreviewInvoiceDialog").setTitle("Preview "+ invoiceType);
                                 oValueHelpDialogPreview.open();
                             }
                             else{
@@ -406,8 +408,8 @@ sap.ui.define(
                 },
                 onDeletePressedNote: function (oEvent) {
                     var getObjectId = oEvent
-                        .getSource().getParameter("listItem")
-                        .getBindingContext("oItemData").getObject().id;
+                    .getSource()
+                    .getBindingContext("oItemData").getObject().id;
                         console.log(getObjectId);
                     var oModel = this.getView().getModel("oItemData").getData();
                     for (let i = 0; i < oModel.Note.length; i++) {

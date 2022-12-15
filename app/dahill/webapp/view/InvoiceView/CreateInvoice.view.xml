@@ -95,7 +95,7 @@
             <Table id="note_table" headerText="{i18n>}" items="{oItemData>/Note}" growing="true">
                 <columns>
                 <Column id="main_column_note_counter" minScreenWidth="Small" demandPopin="true" popinDisplay="Block">
-                        <Label id="main_text_note_counter" text="{i18n>counter}" design="Bold" />
+                        <Label id="main_text_note_counter" text="{i18n>notes}" design="Bold" />
                     </Column>
                     <Column id="main_column_note" minScreenWidth="Small" demandPopin="true" popinDisplay="Block">
                         <Label id="main_text_note" text="Additional Note" design="Bold" />
