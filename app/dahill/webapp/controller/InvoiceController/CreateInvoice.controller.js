@@ -8,7 +8,9 @@ sap.ui.define(
         "sap/m/MessageBox",
         "sap/ui/core/Fragment",
         "sap/ui/model/json/JSONModel",
-        "sap/m/PDFViewer"	
+        "sap/m/PDFViewer",
+        "../../libs/jspdf",
+        "../../libs/html2pdf",	
     ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -143,8 +145,120 @@ sap.ui.define(
                     );
                 },
                 onSavePressed: function () {
-                    var test = this.byId("invoice_Date").getValue();
-                    console.log(test);
+                    var fname = "dsfgsdfg"
+                    var lname = "asdfsdfsdf"
+                    var price = "asdgfsdfsd"
+                    var productName = "sdfgsdfgdsfg"
+                    var quantity = "dsfgdfsg"
+                    var total = "3423"
+
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, "0");
+                    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+                    var yyyy = today.getFullYear();
+
+                    today = mm + "/" + dd + "/" + yyyy;
+
+                    // Template literal
+                    var content = `
+                    <div style="padding-top:30px;" class="container">
+                    <div class="row">
+                        <div class="span4">
+                            
+                            <address>
+                                <strong>SCT Bangla Pvt. Ltd.</strong><br>
+                                <img src="https://play.google.com/store/apps/details?id=com.google.android.apps.photos&hl=en_US&gl=US" alt="Girl in a jacket" width="500" height="600">
+                                35, Middle Banasree<br>
+                                Dhaka-1217 (Bangladesh)
+                                </address>
+                        </div>
+                        <div class="span4 well">
+                            <table >
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 0 0px;" class="pull-right"><strong>Customer #</strong></td>
+                                        <td style="padding: 0 8px;">${fname + " " + lname}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 0px;" class="pull-right"><strong>Invoice #</strong></td>
+                                        <td style="padding: 0 8px;"> 2340</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 0px;"class="pull-right"><strong>Date</strong></td>
+                                        <td style="padding: 0 8px;">${today}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span8">
+                            <h2 style="text-align:center;">Invoice</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="background-color:transparent;" class="span8 well invoice-body">
+                            <table style="">
+                                <thead>
+                                    <tr>
+                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Product</th>
+                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Quantity</th>
+                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Price</th>
+                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="padding: 15px; text-align: left;">${productName}</td>
+                                    <td style="padding: 15px; text-align: center;">${quantity}</td>
+                                    <td style="padding: 15px; text-align: left;">${price}</td>
+                                    <td style="padding: 15px; text-align: left;">${total}</td>
+                                    </tr>
+                        <tr><td colspan="4"></td></tr>
+            <tr>
+                                        <td colspan="2">&nbsp;</td>
+                                        <td style="padding: 15px; text-align: center;"><strong>Total</strong></td>
+                                        <td style="padding: 15px; text-align: left; "><strong>${total}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="margin-top: 60px;
+                            padding: 5px;" >
+                            <h5 style="text-align:center;">Thank You!</h5>
+                        </div>
+                    </div>
+                    <div style="padding-top:100px;">
+                        <div style="display: inline-block; margin-left:25px;">
+                            <strong>Phone:</strong>+8801686454424
+                        </div>
+                        <div  style="display: inline-block; margin-left:35px;">
+                            <strong>Email:</strong> <a href="web@sctbangla.com">web@sctbangla.com</a>
+                        </div>
+                        <div  style="display: inline-block; margin-left:35px;">
+                            <strong>Website:</strong> <a href="http://sctbangla.com">http://sctbangla.com</a>
+                        </div>
+                    </div>
+                </div>
+                    `;
+                    // "<h1>Invoice</h1>" +
+                    // "First Name:  " +
+                    // fname +
+                    // "<br>Last Name:  " +
+                    // lname +
+                    // "<br>Sales Amount:  " +
+                    // salesAmount +
+                    // " EUR";
+                    var element = (document.getElementById("content").innerHTML = content);
+
+                    console.log(productName);
+                    // html2pdf(element, {
+                    // margin: 10,
+                    // filename: "demo.pdf",
+                    // });
                 },
                 onAddItem: function () {
                     var oView = this.getView();

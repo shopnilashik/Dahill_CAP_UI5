@@ -8,7 +8,9 @@
   "dependencies": {
     "@sap/cds": "^6.3.2",
     "cds-mysql": "^6.3.6",
-    "express": "^4"
+    "express": "^4",
+    "html2pdf.js": "^0.9.0",
+    "jspdf": "^2.5.1"
   },
   "devDependencies": {
     "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
