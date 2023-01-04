@@ -29,16 +29,16 @@
             </FlexBox>
         </FlexBox>
         <FlexBox>
-        <List headerText="{i18n>description}" class="sapUiResponsiveMargin" width="auto" items="{oItemData>/Items}">
-                <!-- <items>
-                    <ObjectListItem title="{oItemData>counter}. {oItemData>description}" titleTextDirection="Inherit" 
-                    number="{oItemData>amount}" numberUnit="$"/>
-                </items> -->
-                <StandardListItem
-                    title="{oItemData>counter}. {oItemData>description}"
-                    description="${oItemData>amount}" wrapping="true"
-                    iconDensityAware="false"
-                    iconInset="false" />
+            <List headerText="{i18n>description}" class="sapUiResponsiveMargin" width="auto" items="{oItemData>/Items}">
+                    <!-- <items>
+                        <ObjectListItem title="{oItemData>counter}. {oItemData>description}" titleTextDirection="Inherit" 
+                        number="{oItemData>amount}" numberUnit="$"/>
+                    </items> -->
+                    <StandardListItem
+                        title="{oItemData>counter}. {oItemData>description}"
+                        description="${oItemData>amount}" wrapping="true"
+                        iconDensityAware="false"
+                        iconInset="false" />
             </List>
             <!-- <t:Table rows="{oItemData>/Items}" alternateRowColors="true" selectionMode="None">
                 <t:columns>

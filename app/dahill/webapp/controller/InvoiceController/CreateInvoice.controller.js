@@ -161,88 +161,322 @@ sap.ui.define(
 
                     // Template literal
                     var content = `
-                    <div style="padding-top:30px;" class="container">
-                    <div class="row">
-                        <div class="span4">
-                            
-                            <address>
-                                <strong>SCT Bangla Pvt. Ltd.</strong><br>
-                                <img src="https://play.google.com/store/apps/details?id=com.google.android.apps.photos&hl=en_US&gl=US" alt="Girl in a jacket" width="500" height="600">
-                                35, Middle Banasree<br>
-                                Dhaka-1217 (Bangladesh)
-                                </address>
-                        </div>
-                        <div class="span4 well">
-                            <table >
-                                <tbody>
-                                    <tr>
-                                        <td style="padding: 0 0px;" class="pull-right"><strong>Customer #</strong></td>
-                                        <td style="padding: 0 8px;">${fname + " " + lname}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 0 0px;" class="pull-right"><strong>Invoice #</strong></td>
-                                        <td style="padding: 0 8px;"> 2340</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 0 0px;"class="pull-right"><strong>Date</strong></td>
-                                        <td style="padding: 0 8px;">${today}</td>
-                                    </tr>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="span8">
-                            <h2 style="text-align:center;">Invoice</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div style="background-color:transparent;" class="span8 well invoice-body">
-                            <table style="">
-                                <thead>
-                                    <tr>
-                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Product</th>
-                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Quantity</th>
-                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Price</th>
-                                        <th style="padding: 15px; text-align: left;  width:100%; background-color: #D6D6D6 ;">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td style="padding: 15px; text-align: left;">${productName}</td>
-                                    <td style="padding: 15px; text-align: center;">${quantity}</td>
-                                    <td style="padding: 15px; text-align: left;">${price}</td>
-                                    <td style="padding: 15px; text-align: left;">${total}</td>
-                                    </tr>
-                        <tr><td colspan="4"></td></tr>
+                    <style type="text/css">
+
+</style>
+
+
+<!-- Header -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+  <tr>
+    <td height="20"></td>
+  </tr>
+  <tr>
+    <td>
+      <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff" style="border-radius: 10px 10px 0 0;">
+        <tr class="hiddenMobile">
+          <td height="40"></td>
+        </tr>
+        <tr class="visibleMobile">
+          <td height="30"></td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+              <tbody>
+                <tr>
+                  <td>
+                    <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
+                      <tbody>
+                        <tr>
+                          <td align="left"> <img src="http://www.supah.it/dribbble/017/logo.png" width="32" height="32" alt="logo" border="0" /></td>
+                        </tr>
+                        <tr class="hiddenMobile">
+                          <td height="40"></td>
+                        </tr>
+                        <tr class="visibleMobile">
+                          <td height="20"></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
+                            Hello, Philip Brooks.
+                            <br> Thank you for shopping from our store and for your order.
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="220" border="0" cellpadding="0" cellspacing="0" align="right" class="col">
+                      <tbody>
+                        <tr class="visibleMobile">
+                          <td height="20"></td>
+                        </tr>
+                        <tr>
+                          <td height="5"></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 21px; color: #ff0000; letter-spacing: -1px; font-family: 'Open Sans', sans-serif; line-height: 1; vertical-align: top; text-align: right;">
+                            Invoice
+                          </td>
+                        </tr>
+                        <tr>
+                        <tr class="hiddenMobile">
+                          <td height="0"></td>
+                        </tr>
+                        <tr class="visibleMobile">
+                          <td height="0"></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: right;">
+                            <small>ORDER</small> #800000025<br />
+                            <small>MARCH 4TH 2016</small>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- /Header -->
+<!-- Information -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+  <tbody>
+    <tr>
+      <td>
+        <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+          <tbody>
             <tr>
-                                        <td colspan="2">&nbsp;</td>
-                                        <td style="padding: 15px; text-align: center;"><strong>Total</strong></td>
-                                        <td style="padding: 15px; text-align: left; "><strong>${total}</strong></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div style="margin-top: 60px;
-                            padding: 5px;" >
-                            <h5 style="text-align:center;">Thank You!</h5>
-                        </div>
-                    </div>
-                    <div style="padding-top:100px;">
-                        <div style="display: inline-block; margin-left:25px;">
-                            <strong>Phone:</strong>+8801686454424
-                        </div>
-                        <div  style="display: inline-block; margin-left:35px;">
-                            <strong>Email:</strong> <a href="web@sctbangla.com">web@sctbangla.com</a>
-                        </div>
-                        <div  style="display: inline-block; margin-left:35px;">
-                            <strong>Website:</strong> <a href="http://sctbangla.com">http://sctbangla.com</a>
-                        </div>
-                    </div>
-                </div>
+            <tr class="hiddenMobile">
+              <td height="60"></td>
+            </tr>
+            <tr class="visibleMobile">
+              <td height="40"></td>
+            </tr>
+            <tr>
+              <td>
+                <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
+
+                          <tbody>
+                            <tr>
+                              <td style="font-size: 11px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 1; vertical-align: top; ">
+                                <strong>BILLING INFORMATION</strong>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="100%" height="10"></td>
+                            </tr>
+                            <tr>
+                              <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 20px; vertical-align: top; ">
+                                Philip Brooks<br> Public Wales, Somewhere<br> New York NY<br> 4468, United States<br> T: 202-555-0133
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+
+                        <table width="220" border="0" cellpadding="0" cellspacing="0" align="right" class="col">
+                          <tbody>
+                            <tr class="visibleMobile">
+                              <td height="20"></td>
+                            </tr>
+                            <tr>
+                              <td style="font-size: 11px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 1; vertical-align: top; ">
+                                <strong>PAYMENT METHOD</strong>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="100%" height="10"></td>
+                            </tr>
+                            <tr>
+                              <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 20px; vertical-align: top; ">
+                                Credit Card<br> Credit Card Type: Visa<br> Worldpay Transaction ID: <a href="#" style="color: #ff0000; text-decoration:underline;">4185939336</a><br>
+                                <a href="#" style="color:#b0b0b0;">Right of Withdrawal</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              </td>
+            </tr>
+            <tr class="hiddenMobile">
+              <td height="0"></td>
+            </tr>
+            <tr class="visibleMobile">
+              <td height="0"></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- /Information -->
+<!-- Order Details -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+  <tbody>
+    <tr>
+      <td>
+        <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+          <tbody>
+            <tr>
+            <tr class="hiddenMobile">
+              <td height="60"></td>
+            </tr>
+            <tr class="visibleMobile">
+              <td height="40"></td>
+            </tr>
+            <tr>
+              <td>
+                <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                  <tbody>
+                    <tr>
+                      <th style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; font-weight: normal; line-height: 1; vertical-align: top; padding: 0 10px 7px 0;" width="52%" align="left">
+                        Item
+                      </th>
+                      <th style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; font-weight: normal; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="right">
+                        Subtotal
+                      </th>
+                    </tr>
+                    <tr>
+                      <td height="1" style="background: #bebebe;" colspan="4"></td>
+                    </tr>
+                    <tr>
+                      <td height="10" colspan="4"></td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000;  line-height: 18px;  vertical-align: top; padding:10px 0;" class="article">
+                        Beats Studio Over-Ear Headphones
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33;  line-height: 18px;  vertical-align: top; padding:10px 0;" align="right">$299.95</td>
+                    </tr>
+                    <tr>
+                      <td height="1" colspan="4" style="border-bottom:1px solid #e4e4e4"></td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000;  line-height: 18px;  vertical-align: top; padding:10px 0;" class="article">Beats RemoteTalk Cable</td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33;  line-height: 18px;  vertical-align: top; padding:10px 0;" align="right">$29.95</td>
+                    </tr>
+                    <tr>
+                      <td height="1" colspan="4" style="border-bottom:1px solid #e4e4e4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="20"></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- /Order Details -->
+<!-- Total -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+  <tbody>
+    <tr>
+      <td>
+        <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+          <tbody>
+            <tr>
+              <td>
+
+                <!-- Table Total -->
+                <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                  <tbody>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
+                        Subtotal
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; white-space:nowrap;" width="80">
+                        $329.90
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
+                        Shipping &amp; Handling
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
+                        $15.00
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                        <strong>Grand Total (Incl.Tax)</strong>
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                        <strong>$344.90</strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #b0b0b0; line-height: 22px; vertical-align: top; text-align:right; "><small>TAX</small></td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #b0b0b0; line-height: 22px; vertical-align: top; text-align:right; ">
+                        <small>$72.40</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- /Table Total -->
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- /Total -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+
+  <tr>
+    <td>
+      <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff" style="border-radius: 0 0 10px 10px;">
+        <tr>
+          <td>
+            <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+              <tbody>
+                <tr>
+                  <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
+                    Have a nice day.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr class="spacer">
+          <td height="50"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="20"></td>
+  </tr>
+</table>
                     `;
                     // "<h1>Invoice</h1>" +
                     // "First Name:  " +
@@ -255,10 +489,10 @@ sap.ui.define(
                     var element = (document.getElementById("content").innerHTML = content);
 
                     console.log(productName);
-                    // html2pdf(element, {
-                    // margin: 10,
-                    // filename: "demo.pdf",
-                    // });
+                    html2pdf(element, {
+                    margin: 0,
+                    filename: "demo.pdf",
+                    });
                 },
                 onAddItem: function () {
                     var oView = this.getView();
