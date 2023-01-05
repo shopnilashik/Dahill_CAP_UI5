@@ -1,0 +1,35 @@
+<mvc:View controllerName="dahill.dahill.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="Dashboard">
+    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="All Customer" subheader="Customers Details" press="allCustomerPress">
+		<TileContent unit="Unit" footer="">
+			<NumericContent value="17" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+
+    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Invoices" subheader="Invoice Details" press="Invoicepress">
+		<TileContent unit="Unit" footer="">
+			<NumericContent value="12" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+
+    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Proposals" subheader="Proposals Details" press="Invoicepress">
+		<TileContent unit="Unit" footer="">
+			<NumericContent value="9" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+
+    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Reports" subheader="Sales Report" press="Invoicepress">
+		<TileContent unit="Unit" footer="">
+			<NumericContent value="1" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+
+    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Expenses" subheader="Reports" press="Invoicepress">
+		<TileContent unit="Unit" footer="">
+			<NumericContent value="2" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+    </Page>
+</mvc:View>

@@ -6,7 +6,6 @@
                 <OverflowToolbar id="_IDGenOverflowToolbar1" >  
                     <Button id="customer_back_button" type="Back"
                         press="onNavButton" visible="{= !${editModel>/editmode}}"/>
-                    <Title id="_IDGenTitle1" text="{i18n>title}"/>
                     <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
                     <Button id="app_edit_button" text="{i18n>edit}" type="Emphasized"
                         icon="sap-icon://edit" press="onEditPressed"
@@ -16,7 +15,7 @@
             <f:SimpleForm id="display_simpleform"
                 editable="true"
                 layout="ResponsiveGridLayout"
-                title="{i18n>title}"
+                title="{name}"
                 labelSpanXL="3"
                 labelSpanL="3"
                 labelSpanM="3"

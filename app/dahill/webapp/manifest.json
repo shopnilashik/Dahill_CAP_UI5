@@ -116,7 +116,7 @@
             "routes": [
                 {
                     "name": "RouteMain",
-                    "pattern": "dsa",
+                    "pattern": "dfd",
                     "target": "RouteMain"
                 },
                 {
@@ -125,12 +125,12 @@
                     "target": "TargetInvoiceMain"
                 },
                 {
-                    "pattern": "",
+                    "pattern": "fgf",
                     "name": "CreateInvoice",
                     "target": "TargetInvoiceCreate"
                 },
                 {
-                    "pattern": "dsfsdf",
+                    "pattern": "sd",
                     "name": "CustomerMain",
                     "target": "TargetCustomerMain"
                 },
@@ -143,6 +143,11 @@
                     "pattern": "CreateCustomer",
                     "name": "CreateCustomer",
                     "target": "TargetCreateCustomer"
+                },
+                {
+                    "pattern": "",
+                    "name": "Dashboard",
+                    "target": "TargetDashboard"
                 }
             ],
             "targets": {
@@ -187,6 +192,13 @@
                     "clearControlAggregation": false,
                     "viewId": "CreateCustomer",
                     "viewName": "CustomerView/CreateCustomer"
+                },
+                "TargetDashboard": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Dashboard",
+                    "viewName": "Dashboard"
                 }
             }
         },

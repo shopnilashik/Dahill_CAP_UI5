@@ -2,6 +2,12 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>CustomerMaintitle}">
+    <customHeader>
+        <OverflowToolbar id="_IDGenOverflowToolbar1">
+            <Button id="Invoice_back_button" type="Back" press="onNavButton" />
+            <Title id="_IDGenTitle1" text="{i18n>}" />
+        </OverflowToolbar>
+    </customHeader>
         <content>
          <Table id="main_table" headerText="{i18n>}" items="{/Customer}" 
                     growing="true" >

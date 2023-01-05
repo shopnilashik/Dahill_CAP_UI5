@@ -7,6 +7,7 @@ sap.ui.define(
         "sap/m/MessageBox",
         "sap/ui/model/Filter",
         "sap/ui/model/FilterOperator",
+        "sap/ui/core/routing/History"
     ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -17,7 +18,8 @@ sap.ui.define(
         MessageToast,
         MessageBox,
         Filter,
-        FilterOperator
+        FilterOperator,
+        History
     ) {
         "use strict";
 
@@ -40,6 +42,18 @@ sap.ui.define(
                 if (!oList.hasPendingChanges()) {
                     oList.refresh();
                     return;
+                }
+            },
+            onNavButton: function () {
+                var oHistory = History.getInstance();
+                var sPreviousHash = oHistory.getPreviousHash();
+    
+                if (sPreviousHash !== undefined) {
+                    window.history.go(-1);
+                } else {
+                    var oRouter = this.getOwnerComponent().getRouter();
+                    oRouter.navTo("Dashboard", {}, true);
+                  
                 }
             },
             onTableItemPressed: function (oEvent) {
